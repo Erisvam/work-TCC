@@ -1,124 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <link rel="stylesheet" href="style.css">
-    <!-- css BOOTSTRAP -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-
 <body>
-    <div class="title-content">
-        <h1>THE PLUG</h1>
-    </div>
-
-    <div class="every-cards">
-        <div class="card" style="width: 18rem; height: 384px;">
-            <div class="title-card">
-                <h2>60</h2>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Go
-                    somewhere</button>
-            </div>
+    <div class="header">
+        <div class="week">
+            <label>Semana</label>
+            <button></button>
         </div>
-        <div class="card" style="width: 18rem; height: 384px;">
-            <div class="title-card">
-                <h2>60</h2>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem; height: 384px;">
-            <div class="title-card">
-                <h2>60</h2>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+        <div class="today">
+            <label>Hoje</label>
+            <button></button>
         </div>
     </div>
-
-    <div class="modal fade modalUnique" id="exampleModal" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog  dialogReport">
-            <div class="modal-content  contentReport">
-                <div class="modal-header  headerReport">
-                    <h5 class="modal-title" id="exampleModalLabel">Relátorio - X</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class="monitory">
+        <h2 class="h2-monitoramento">Monitoramento</h2>
+        <div class="monitoramento">
+            <div class="typeOne">
+                <div class="registeredNumber">
+                    <label>Nome 1</label>
+                    <span>20</span> 
                 </div>
-                <div class="modal-body  bodyReport">
-                    <div class="statusTomada">
-                        <div>
-                            <h5>Consumo agora</h5>
-                            <span>0,055/hr</span>
-                        </div>
-                        <div>
-                            <h5>Uso hoje(data)</h5>
-                            <span>R$5,00</span>
-                        </div>
-                    </div>
-                    <div class="graphic">
-                    </div>
+                <div class="listTypeOne">
+                    <ul>
+                        <li>ontem</li>
+                        <li>antes de ontem</li>
+                        <li>antes de ontem</li>
+                    </ul>
                 </div>
-                <div class="modal-footer  footerReport">
-                    <div class="notification">
-                        <div class="week">
-                            <h4>Semana</h4>
-                            <span>45V</span>
-                            <span>R$34,00</span>
-                        </div>
-                        <div class="months">
-                            <h4>Mês</h4>
-                            <span>55V</span>
-                            <span>R$34,00</span>
-                        </div>
-                        <div class="year">
-                            <h4>Ano</h4>
-                            <span>455V</span>
-                            <span>R$34,00</span>
-                        </div>
-                        <div class="total">
-                            <h4>Total</h4>
-                            <span>45V</span>
-                            <span>R$34,00</span>
-                        </div>
-                    </div>
-                    <div class="closeButton">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
+            </div>
+            <div class="typeTwo">
+                <div class="registeredNumber">
+                    <label>Nome 2</label>
+                    <span>10</span> 
+                </div>
+                <div class="listTypeTwo">
+                    <ul>
+                        <li>ontem</li>
+                        <li>antes de ontem</li>
+                        <li>antes de ontem</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="typeThree">
+                <div class="registeredNumber">
+                    <label>Nome 3</label>
+                    <span>40</span> 
+                </div>
+                <div class="listTypeThree">
+                    <ul>
+                        <li>ontem</li>
+                        <li>antes de ontem</li>
+                        <li>antes de ontem</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+    <div class="graph">
+        <h2 class="h2-grafico">Gráfico</h2>
+        <div class="graph-son">
+            <canvas class="myChart" height="265" style="display: block; width: 770px;"></canvas>
+        </div>
+    </div>
+    <div class="pdfAndOnoff">    
+        <div class="pdf">
+            <h3 class="h3-pdf">PDF</h3>
+            <i class="fas fa-file-pdf icon-pdf"></i>
+        </div>
+        <div class="onAndOff">
+            <h3 class="h3-onAndOff">ON/OFF</h3>
+            <button type="button" class="btn btn-outline-danger button">OFF</button>
+            <button type="button" class="btn btn-outline-success button">ON</button>
+        </div>
+    </div>
 
-    <!-- scripts BOOTSTRAP -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- graph -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+     <!--icons-->
+     <script src="https://kit.fontawesome.com/6b55f94eeb.js" crossorigin="anonymous"></script>
+     <!--jquery-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var context = document.getElementsByClassName('myChart');
+        
+        mainGraph(context);
+        function mainGraph(context) {
+            var graph = new Chart(context, {
+                type: 'bar',
+                data: {
+                    labels: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dec'],
+                    datasets: [
+                        {
+                            label: 'EXEMPLO',
+                            data: [2, 5, 36, 1, 24],
+                            borderWidth: 6,
+                            borderColor: 'rgba(77,166,253, 0.85)',
+                            backgroundColor: 'transparent'
+                        }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        fontSize: 20,
+                        text: "QUALQUER COISA"
+                    }
+                }
+            });
+        }
+    </script>
 </body>
-
 </html>
