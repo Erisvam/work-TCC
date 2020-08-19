@@ -1,34 +1,54 @@
+.h2-monitoramento, .h2-grafico, .h3-pdf, .h3-onAndOff{
+    color: #4a4c5a;
+    font-family: 'Montserrat', sans-serif;
+    margin: 20px 0 0 20px;
+}
+
+
+
 .header{
-    background-color: rgb(120, 120, 216) !important;
+    background-color: rgba(77,166,253, 0.85) !important;
     width: 100%;
     height: 150px;
+}
+.h1-title{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    padding: 25px;
+}
+
+
+
+.monitory{
+    border: 2px solid #e8e8e8;
+    padding: 10px;
+}
+.choice{
+    text-align: center;
+    height: auto;
+}
+.choiceButtons{
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-bottom: 20px;
 }
-
 .week, .today{
     height: 50px;
     width: 200px;
     margin: 0 20px 20px 0;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
     font-weight: 600;
 }
-
 .week button, .today button{
-    height: 20px;
+    height: 15px;
     width: 200px;
     border-radius: 20px;
-    background-color: rgb(14, 151, 82);
+    background-color: #4a4c5a;
 }
 .week button:hover, .today button:hover{
-    background-color: springgreen;
-}
-.monitory{
-    border: 2px solid #e8e8e8;
+    background-color: rgba(77,166,253, 0.85);
 }
 .monitoramento{
     height: 300px;
@@ -43,11 +63,10 @@
     height: 290px;
     font-family: Helvetica, sans-serif;
 }
-
 .registeredNumber{
     height: 150px;
     display: flex;
-    border: 1px solid;
+    border: 1px solid rgba(0,0,0,.125);
     flex-direction: column;
     justify-content: center;
     text-align: center;   
@@ -61,11 +80,13 @@
 .listTypeOne, .listTypeTwo, .listTypeThree{
     height: 100px;
     padding: 10px 0 0 25px;
-    border: 1px solid;
 }
 .listTypeOne ul{
     padding: 0;
 }
+
+
+
 .graph{
     padding: 10px;
     border: 2px solid #e8e8e8;;
@@ -73,19 +94,32 @@
 .graph-son{
     width: 90%;
     height: 390px;
-    margin: 20px auto;
+    margin: 10px auto;
 }
+.divSelect{
+    width: 160px;
+    margin: 10px 0 0 20px;
+}
+.choiceGraph{
+    width: 130px !important;
+}
+
+
+
 .pdfAndOnoff{
     display: flex;
-}
-.h3-onAndOff, .h3-pdf{
-    margin-left: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e8e8e8;
 }
 .pdf, .onAndOff{
     width: 50%;
-    height: 120px;
+    height: auto;
     border: 2px solid #e8e8e8;
+} 
+.buttons, .icon{
     text-align: center;
+    margin-bottom: 20px;
+    height: 60px;
 }
 .icon-pdf{
     font-size: 50px;
@@ -94,4 +128,7 @@
 .button{
     width: 150px;
     margin: 20px 20px 0 0 ;
+}
+.h3-pdf{
+    margin-left: 30px ;
 }

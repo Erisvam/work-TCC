@@ -6,22 +6,30 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="style.css">
-
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
-        <div class="week">
-            <label>Semana</label>
-            <button></button>
-        </div>
-        <div class="today">
-            <label>Hoje</label>
-            <button></button>
-        </div>
+        <h1 class="h1-title">THE PLUG</h1>
     </div>
     <div class="monitory">
         <h2 class="h2-monitoramento">Monitoramento</h2>
+        <div class="choice">
+            <label>algum nome indicando para que serve esses botoes</label>
+            <div class="choiceButtons">
+                <div class="week">
+                    <label>Semana</label>
+                    <button></button>
+                </div>
+                <div class="today">
+                    <label>Hoje</label>
+                    <button></button>
+                </div>
+            </div>
+        </div>
         <div class="monitoramento">
             <div class="typeOne">
                 <div class="registeredNumber">
@@ -66,20 +74,37 @@
     </div>
     <div class="graph">
         <h2 class="h2-grafico">Gráfico</h2>
+        <div class="divSelect">
+            <label for="exampleFormControlSelect1">Escolha tipo gráfico:</label>
+            <select class="form-control  choiceGraph">
+              <option>Barra</option>
+              <option>linha</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
         <div class="graph-son">
             <canvas class="myChart" height="265" style="display: block; width: 770px;"></canvas>
         </div>
     </div>
     <div class="pdfAndOnoff">    
+        
         <div class="pdf">
             <h3 class="h3-pdf">PDF</h3>
-            <i class="fas fa-file-pdf icon-pdf"></i>
+            <div class="icon">
+                <i class="fas fa-file-pdf icon-pdf"></i>
+            </div>
         </div>
+
         <div class="onAndOff">
             <h3 class="h3-onAndOff">ON/OFF</h3>
-            <button type="button" class="btn btn-outline-danger button">OFF</button>
-            <button type="button" class="btn btn-outline-success button">ON</button>
+            <div class="buttons">
+                <button type="button" class="btn btn-outline-danger button">OFF</button>
+                <button type="button" class="btn btn-outline-success button">ON</button>
+            </div>
         </div>
+
     </div>
 
 
