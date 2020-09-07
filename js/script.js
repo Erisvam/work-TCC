@@ -28,7 +28,7 @@ function selectedSector(sector) {
 
     }
     section[sector]();
-    if(screen.width < 1000){
+    if($(window).width() < 1000){
         endAnimation();
     }
 }

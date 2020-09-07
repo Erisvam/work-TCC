@@ -21,7 +21,9 @@
 /* MOBILEEEEE */
 @media screen and (min-width: 769px){
     .body .headerVertical{
-        display: initial;
+        animation-name: none;
+        animation-duration: initial;
+        display: initial !important;
     }
 }
 @media screen and (max-width: 768px){
@@ -84,30 +86,18 @@
         width: 100%;
     }
 
-    .settingsModify .changeDeviceName{
+    .settingsModify .changeDeviceName, .settingsModify .timeStandby{
         width: 90% !important;
         margin: 0 auto;
         height: auto !important;
         margin-bottom: 3rem;
     }
-    .settingsModify .timeStandby{
-        width: 90%;
-        margin: 0 auto;
-        height: auto;
+    .graphModify .actionGraph .divSelect, .graphModify .actionGraph .divDate{
+        width: 100% !important;
+        margin-left: 1rem !important;
     }
-    .graphModify .actionGraph .divSelect{
-        width: 100%;
-        margin-left: 1rem;
-    }
-    .graphModify .actionGraph #selectTypeGraph{
+    .graphModify .actionGraph .divSelect #selectTypeGraph, .graphModify .actionGraph .divDate input{
         width: 95% !important;
-    }
-    .graphModify .actionGraph .divDate{
-        width: 100%;
-        margin-left: 1rem;
-    }
-    .graphModify .actionGraph .divDate input{
-        width: 95%;
     }
     .graphModify .actionGraph .divDate .button{
         display: flex;
