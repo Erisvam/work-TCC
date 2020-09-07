@@ -1,0 +1,18 @@
+.headerHorizontal{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    padding: 1rem 0 0 1rem;
+    background-color: #f2f3f5;
+}
+.headerHorizontal .title{
+    display: flex;
+}
+.headerHorizontal .title .fa-plug{
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+.headerHorizontal .title h1{
+    font-family: 'Montserrat', Times, serif;
+}

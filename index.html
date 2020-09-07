@@ -1,161 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Smart Plug</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/graph/graph.css">
+    <link rel="stylesheet" href="css/monitory/monitory.css">
+    <link rel="stylesheet" href="css/settings/settings.css">
+    <link rel="stylesheet" href="css/headerVertical/headerVertical.css">
+    <link rel="stylesheet" href="css/headerHorizontal/headerHorizontal.css">
+
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="header">
-        <h1 class="h1-title">THE PLUG</h1>
-    </div>
-    <div class="monitory">
-        <h2 class="h2-monitoramento">Monitoramento</h2>
-        <div class="choice">
-            <label>algum nome indicando para que serve esses botoes</label>
-            <div class="choiceButtons">
-                <div class="week">
-                    <label>Semana</label>
-                    <button></button>
-                </div>
-                <div class="today">
-                    <label>Hoje</label>
-                    <button></button>
-                </div>
+
+    <div class="body">
+        <div class="headerHorizontal">
+            <div class="openMenu">
+                <i class="fas fa-bars"></i>
             </div>
-        </div>
-        <div class="monitoramento">
-            <div class="typeOne">
-                <div class="registeredNumber">
-                    <label>Nome 1</label>
-                    <span>20</span> 
-                </div>
-                <div class="listTypeOne">
-                    <ul>
-                        <li>ontem</li>
-                        <li>antes de ontem</li>
-                        <li>antes de ontem</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="typeTwo">
-                <div class="registeredNumber">
-                    <label>Nome 2</label>
-                    <span>10</span> 
-                </div>
-                <div class="listTypeTwo">
-                    <ul>
-                        <li>ontem</li>
-                        <li>antes de ontem</li>
-                        <li>antes de ontem</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="typeThree">
-                <div class="registeredNumber">
-                    <label>Nome 3</label>
-                    <span>40</span> 
-                </div>
-                <div class="listTypeThree">
-                    <ul>
-                        <li>ontem</li>
-                        <li>antes de ontem</li>
-                        <li>antes de ontem</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="graph">
-        <h2 class="h2-grafico">Gráfico</h2>
-        <div class="divSelect">
-            <label for="exampleFormControlSelect1">Escolha tipo gráfico:</label>
-            <select class="form-control  choiceGraph">
-              <option>Barra</option>
-              <option>linha</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        <div class="graph-son">
-            <canvas class="myChart" height="265" style="display: block; width: 770px;"></canvas>
-        </div>
-    </div>
-    <div class="pdfAndOnoff">    
-        
-        <div class="pdf">
-            <h3 class="h3-pdf">PDF</h3>
-            <div class="icon">
-                <i class="fas fa-file-pdf icon-pdf"></i>
+            <div class="title">
+                <i class="fas fa-plug"></i>
+                <h1>SMART PLUG</h1>
             </div>
         </div>
 
-        <div class="onAndOff">
-            <h3 class="h3-onAndOff">ON/OFF</h3>
-            <div class="buttons">
-                <button type="button" class="btn btn-outline-danger button">OFF</button>
-                <button type="button" class="btn btn-outline-success button">ON</button>
+        <div class="headerVertical">
+            <div class="elementsVertical">
+                <div class="closeMenu"><i class="fas fa-times"></i></div>
+                <div class="monitory" onclick="selectedSector('monitory')">
+                    <label for="monitoryIcon">Monitoramento</label>
+                    <i id="monitoryIcon" class="fas fa-desktop"></i>
+                </div>
+                <div class="graph" onclick="selectedSector('graph')">
+                    <label for="graphIcon">Gráfico</label>
+                    <i id="graphIcon" class="fas fa-chart-line"></i>
+                </div>
+                <div class="settings" onclick="selectedSector('settings')">
+                    <label for="settingsIcon">Configurações</label>
+                    <i id="settingsIcon" class="fas fa-cog"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="main">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header"></div>
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
             </div>
         </div>
 
+        <div hidden class="graphModify">
+            <div class="actionGraph">
+                <div class="divSelect">
+                    <label for="selectTypeGraph">Tipo do gráfico:</label>
+                    <select class="form-control" id="selectTypeGraph">
+                        <option value="line" selected>Linha</option>
+                        <option value="bar">Barras</option>
+                        <option value="radar">Radar</option>
+                    </select>
+                </div>
+                <div class="divDate">
+                    <label for="date">Data:</label>
+                    <input id="date" type="date">
+                    <div class="button">
+                        <button type="submit" class="btn btn-primary">ok</button>
+                    </div>
+                </div>
+            </div>
+            <div class="divGraph">
+                <canvas class="myChart"></canvas>
+                <!-- <canvas class="myChart" height="185" style="display: block; width: 770px;"></canvas> -->
+            </div>
+        </div>
+
+        <div hidden class="settingsModify">
+            <div class="changeDeviceName">
+                <label for="deviceName">Nome do dispositivo:</label>
+                <input type="text" id="deviceName" placeholder="Ex: Geladeira">
+                <div class="icons">
+                    <a class="fas fa-pen" role="button"></a>
+                    <a class="far fa-save" role="button"></a>
+                </div>
+            </div>
+            <div class="timeStandby">
+                <label for="time">Tempo para o desligamento do aparelho</label>
+                <input type="text" id="time">
+                <div class="icons">
+                    <a class="fas fa-pen" role="button"></a>
+                    <a class="far fa-save" role="button"></a>
+                </div>
+            </div>
+        </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
     <!-- graph -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-     <!--icons-->
-     <script src="https://kit.fontawesome.com/6b55f94eeb.js" crossorigin="anonymous"></script>
-     <!--jquery-->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        var context = document.getElementsByClassName('myChart');
-        
-        mainGraph(context);
-        function mainGraph(context) {
-            var graph = new Chart(context, {
-                type: 'bar',
-                data: {
-                    labels: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dec'],
-                    datasets: [
-                        {
-                            label: 'EXEMPLO',
-                            data: [2, 5, 36, 1, 24],
-                            borderWidth: 6,
-                            borderColor: 'rgba(77,166,253, 0.85)',
-                            backgroundColor: 'transparent'
-                        }
-                    ]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        fontSize: 20,
-                        text: "QUALQUER COISA"
-                    }
-                }
-            });
-        }
-    </script>
+    <!--icons-->
+    <script src="https://kit.fontawesome.com/6b55f94eeb.js" crossorigin="anonymous"></script>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- banco -->
+    <script src="js/banco.js"></script>
+    <!-- graph -->
+    <script src="js/graph.js"></script>
+    <!-- scripts geral -->
+    <script src="js/script.js"></script>
 </body>
 </html>

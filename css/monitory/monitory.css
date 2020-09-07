@@ -1,0 +1,13 @@
+.main{
+    margin-top: 18rem;
+    margin-left: 14rem;
+}
+.main .card{
+    margin: auto;
+    height: 23rem;
+    box-shadow: 6px 10px 14px 1px #888888;
+}
+.main .card-header{
+    height: 12rem;
+    background-color: grey;
+}
