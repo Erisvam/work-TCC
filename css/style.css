@@ -1,50 +1,63 @@
-*{
+* {
     font-size: 16px;
 }
-.body{
+
+.body {
     position: relative;
 }
 
-.openMenu{
-    display: none;
-}
-.closeMenu{
+.openMenu {
     display: none;
 }
 
-.body .graphModify, .body .settingsModify{
+.closeMenu {
+    display: none;
+}
+
+.body .graphModify,
+.body .settingsModify {
     margin-top: 5rem;
     margin-left: 14rem;
     padding: 1rem;
 }
 
+
 /* MOBILEEEEE */
-@media screen and (min-width: 769px){
-    .body .headerVertical{
+
+@media screen and (min-width: 769px) {
+    .body .headerVertical {
         animation-name: none;
         animation-duration: initial;
         display: initial !important;
     }
 }
-@media screen and (max-width: 400px){
+
+@media screen and (max-width: 400px) {
     .body .headerVertical .elementsVertical {
         margin-top: 0;
         height: 70%;
     }
-    .body .headerVertical .monitory label, .headerVertical .graph label, .headerVertical .settings label {
+    .body .headerVertical .monitory label,
+    .headerVertical .graph label,
+    .headerVertical .settings label {
         display: block;
         font-size: 1.1rem;
         font-family: 'Montserrat', Times, serif;
     }
-    .headerVertical .elementsVertical .closeMenu i, .body .headerVertical .monitory .fa-desktop, .body .headerVertical .graph .fa-chart-line, .body .headerVertical .settings .fa-cog {
-        font-size: 2rem ;
+    .headerVertical .elementsVertical .closeMenu i,
+    .body .headerVertical .monitory .fa-desktop,
+    .body .headerVertical .graph .fa-chart-line,
+    .body .headerVertical .settings .fa-cog {
+        font-size: 2rem;
     }
 }
-@media screen and (max-width: 768px){
-    .openMenu, .closeMenu{
+
+@media screen and (max-width: 768px) {
+    .openMenu,
+    .closeMenu {
         display: initial;
     }
-    .closeMenu{
+    .closeMenu {
         color: white;
         text-align: center;
         cursor: pointer;
@@ -52,97 +65,99 @@
     .closeMenu i {
         font-size: 3rem;
     }
-    .closeMenu:hover{
+    .closeMenu:hover {
         background-color: #314790;
     }
-    .body .headerHorizontal{
+    .body .headerHorizontal {
         display: flex;
         height: auto;
     }
-    .headerHorizontal .title h1{
+    .headerHorizontal .title h1 {
         font-size: 2rem;
         font-weight: bold;
     }
-    .headerHorizontal .openMenu{
+    .headerHorizontal .openMenu {
         margin-right: 1.6rem;
     }
-    .headerHorizontal .openMenu i{
+    .headerHorizontal .openMenu i {
         font-size: 3rem;
     }
-    .body .headerVertical{
+    .body .headerVertical {
         display: none;
         top: 4rem;
         z-index: 1;
     }
-    .body .headerVertical .elementsVertical{
+    .body .headerVertical .elementsVertical {
         margin-top: 0;
         height: 90%;
     }
-    .body .main{
+    .body .main {
         margin: 6rem 0 0 0;
         height: auto;
     }
-    .main .card{
+    .main .card {
         box-shadow: 6px 10px 14px 1px #888888;
     }
-    .body .graphModify{
+    .body .graphModify {
         margin-left: 0;
     }
-    .graphModify .actionGraph{
+    .graphModify .actionGraph {
         flex-direction: column;
         align-items: center;
     }
-
-    .settingsModify{
+    .settingsModify {
         margin: 0 !important;
         flex-direction: column;
         margin-top: calc(80px + 20px) !important;
         width: 100%;
     }
-
-    .settingsModify .changeDeviceName, .settingsModify .timeStandby{
+    .settingsModify .changeDeviceName,
+    .settingsModify .timeStandby {
         width: 90% !important;
         margin: 0 auto;
         height: auto !important;
         margin-bottom: 3rem;
     }
-    .graphModify .actionGraph .divSelect, .graphModify .actionGraph .divDate{
+    .graphModify .actionGraph .divSelect,
+    .graphModify .actionGraph .divDate {
         width: 100% !important;
         margin-left: 1rem !important;
     }
-    .graphModify .actionGraph .divSelect #selectTypeGraph, .graphModify .actionGraph .divDate input{
+    .graphModify .actionGraph .divSelect #selectTypeGraph,
+    .graphModify .actionGraph .divDate input {
         width: 95% !important;
     }
-    .graphModify .actionGraph .divDate .button{
+    .graphModify .actionGraph .divDate .button {
         display: flex;
         justify-content: center;
         margin-top: 2rem;
     }
-    .graphModify .actionGraph .divDate .btn-primary{
+    .graphModify .actionGraph .divDate .btn-primary {
         width: 7rem;
     }
 }
 
 
 /* ANIMAÇÃO */
+
 @keyframes slide-right {
     0% {
         -webkit-transform: translateX(-210px);
-                transform: translateX(-210px);
+        transform: translateX(-210px);
     }
     100% {
         -webkit-transform: translateX(0px);
-                transform: translateX(0px);
+        transform: translateX(0px);
     }
 }
 
 @keyframes slide-left {
     0% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
     100% {
-      -webkit-transform: translateX(-230px);
-              transform: translateX(-230px);
+        -webkit-transform: translateX(-230px);
+        transform: translateX(-230px);
     }
 }

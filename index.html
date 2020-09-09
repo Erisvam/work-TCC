@@ -18,6 +18,9 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <!-- toogle button -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -53,6 +56,12 @@
         </div>
 
         <div class="main">
+            
+            <!-- <div class="toogleButton">
+                <label for="inputToggle">Dispositivo:</label>
+                <input type="checkbox" id="inputToggle" class="toggle" checked data-toggle="toggle" data-on="Ligado" data-off="Desligado" data-onstyle="primary" data-offstyle="danger">
+            </div> -->
+
             <div class="card" style="width: 18rem;">
                 <div class="card-header"></div>
                 <div class="card-body">
@@ -83,7 +92,6 @@
             </div>
             <div class="divGraph">
                 <canvas class="myChart"></canvas>
-                <!-- <canvas class="myChart" height="185" style="display: block; width: 770px;"></canvas> -->
             </div>
         </div>
 
@@ -117,6 +125,8 @@
     <script src="https://kit.fontawesome.com/6b55f94eeb.js" crossorigin="anonymous"></script>
     <!--jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- toogle button -->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
     <!-- banco -->
     <script src="js/banco.js"></script>
@@ -124,5 +134,17 @@
     <script src="js/graph.js"></script>
     <!-- scripts geral -->
     <script src="js/script.js"></script>
+
+    <script>
+
+        // $(".toggle").change(function(){
+        //     let valueCheckbox = $("input[class='toggle']:checked").val();
+        //     if(valueCheckbox == undefined){
+        //         valueCheckbox = "off";   
+        //     }
+        //     console.log(valueCheckbox);
+        // });
+
+    </script>
 </body>
 </html>

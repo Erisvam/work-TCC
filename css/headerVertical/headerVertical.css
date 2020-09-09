@@ -1,4 +1,4 @@
-.headerVertical{
+.headerVertical {
     position: fixed;
     left: 0;
     top: 5rem;
@@ -7,7 +7,8 @@
     display: flex;
     background-color: #3d57ae;
 }
-.headerVertical .elementsVertical{
+
+.headerVertical .elementsVertical {
     width: 100%;
     height: 70%;
     margin-top: 4rem;
@@ -15,19 +16,31 @@
     flex-direction: column;
     justify-content: space-around;
 }
-.headerVertical .elementsVertical .monitory, .headerVertical .elementsVertical .graph, .headerVertical .elementsVertical .settings{
+
+.headerVertical .elementsVertical .monitory,
+.headerVertical .elementsVertical .graph,
+.headerVertical .elementsVertical .settings {
     color: white;
     text-align: center;
     cursor: pointer;
 }
-.headerVertical .monitory:hover, .headerVertical .graph:hover, .headerVertical .settings:hover{
+
+.headerVertical .monitory:hover,
+.headerVertical .graph:hover,
+.headerVertical .settings:hover {
     background-color: #314790;
 }
-.headerVertical .monitory label, .headerVertical .graph label, .headerVertical .settings label{
+
+.headerVertical .monitory label,
+.headerVertical .graph label,
+.headerVertical .settings label {
     display: block;
     font-size: 1.40rem;
     font-family: 'Montserrat', Times, serif;
 }
-.headerVertical .monitory .fa-desktop, .headerVertical .graph .fa-chart-line, .headerVertical .settings .fa-cog{
+
+.headerVertical .monitory .fa-desktop,
+.headerVertical .graph .fa-chart-line,
+.headerVertical .settings .fa-cog {
     font-size: 3rem;
 }

@@ -1,29 +1,37 @@
-.graphModify .actionGraph{
+.graphModify .actionGraph {
     width: 100%;
     display: flex;
     margin-top: 1rem;
 }
-.graphModify .actionGraph .divDate, .graphModify .actionGraph .divSelect{
+
+.graphModify .actionGraph .divDate,
+.graphModify .actionGraph .divSelect {
     margin-left: 3rem;
 }
 
+
 /* graph -> date */
-.graphModify .actionGraph .divDate{
+
+.graphModify .actionGraph .divDate {
     width: 17rem;
 }
-.graphModify .actionGraph .divDate label{
+
+.graphModify .actionGraph .divDate label {
     display: block;
 }
-.graphModify .actionGraph .divDate input{
+
+.graphModify .actionGraph .divDate input {
     margin-right: 1rem;
     border-radius: .25rem;
     height: 2.30rem !important;
     border: 1px solid #ced4da;
 }
-.graphModify .actionGraph .divDate .button{
+
+.graphModify .actionGraph .divDate .button {
     display: inline-block;
 }
-.graphModify .actionGraph .divDate .btn-primary{
+
+.graphModify .actionGraph .divDate .btn-primary {
     padding: 0 !important;
     width: 5rem;
     height: 2rem;
@@ -31,13 +39,17 @@
     box-shadow: 4px 5px 5px -3px #888888;
 }
 
+
 /* graph -> select */
-.graphModify .actionGraph #selectTypeGraph{
+
+.graphModify .actionGraph #selectTypeGraph {
     width: 13rem !important;
 }
 
+
 /* graph -> graph */
-.graphModify .divGraph{
+
+.graphModify .divGraph {
     position: relative;
     max-width: 83rem;
     border-radius: 1rem;

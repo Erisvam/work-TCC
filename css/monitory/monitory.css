@@ -1,13 +1,36 @@
-.main{
-    margin-top: 18rem;
+.main {
+    /* position: absolute;
+    top: 5rem;
+    left: 14rem;
+    height: auto;
+    width: 88%;
+    margin: 0; */
     margin-left: 14rem;
+    margin-top: 8rem;
 }
-.main .card{
+
+.main .card {
     margin: auto;
     height: 23rem;
     box-shadow: 6px 10px 14px 1px #888888;
 }
-.main .card-header{
+
+.main .card-header {
     height: 12rem;
     background-color: grey;
+}
+
+.main .toogleButton {
+    margin-bottom: 1rem;
+    padding: 1rem 0 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.main .toogleButton label {
+    font-weight: 700;
+}
+
+.main .toogleButton .toggle {
+    box-shadow: 4px 5px 5px -3px #888888;
 }

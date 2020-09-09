@@ -1,36 +1,46 @@
-.body .settingsModify{
+.body .settingsModify {
     display: flex;
     margin-top: 8rem;
     justify-content: space-around;
 }
-.settingsModify .changeDeviceName, .settingsModify .timeStandby{
+
+.settingsModify .changeDeviceName,
+.settingsModify .timeStandby {
     width: 23rem;
     height: 12rem;
     border-radius: 1rem;
     padding: 1.9rem 2rem 0 2rem;
     box-shadow: 6px 10px 14px 1px #888888;
 }
-.settingsModify .changeDeviceName label, .settingsModify .timeStandby label{
+
+.settingsModify .changeDeviceName label,
+.settingsModify .timeStandby label {
     display: block;
     margin-bottom: 1rem;
     font-weight: bolder;
 }
-.settingsModify .changeDeviceName #deviceName, .settingsModify .timeStandby #time{
+
+.settingsModify .changeDeviceName #deviceName,
+.settingsModify .timeStandby #time {
     border-color: transparent;
     border-bottom-color: initial;
     width: 100%;
 }
-.settingsModify .changeDeviceName #deviceName:hover, .settingsModify .timeStandby #timeStandby:hover{
-    outline-color: transparent;
 
+.settingsModify .changeDeviceName #deviceName:hover,
+.settingsModify .timeStandby #timeStandby:hover {
+    outline-color: transparent;
 }
-.settingsModify .changeDeviceName .icons, .settingsModify .timeStandby .icons{
+
+.settingsModify .changeDeviceName .icons,
+.settingsModify .timeStandby .icons {
     margin: 2rem 0;
     display: flex;
     justify-content: space-around;
-
 }
-.settingsModify .changeDeviceName .icons a,.settingsModify .timeStandby .icons a{
+
+.settingsModify .changeDeviceName .icons a,
+.settingsModify .timeStandby .icons a {
     font-size: 2rem;
     text-decoration: none;
 }
