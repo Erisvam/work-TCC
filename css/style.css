@@ -50,7 +50,21 @@
     .body .headerVertical .settings .fa-cog {
         font-size: 2rem;
     }
+    .graphModify .actionGraph .divDate {
+        display: flex;
+        flex-direction: column;
+    }
+    .graphModify .actionGraph .divDate .button {
+        align-self: center;
+    }
+    .graphModify .actionGraph .divDate .btn-primary {
+        width: 12rem !important;
+        font-size: 1.3rem;
+    }
 }
+
+
+/* mobile screen vertical */
 
 @media screen and (max-width: 768px) {
     .openMenu,
@@ -138,7 +152,62 @@
 }
 
 
-/* ANIMAÇÃO */
+/* mobile screen horizontal */
+
+@media screen and (max-height: 500px) {
+    .body .headerHorizontal {
+        z-index: 1;
+    }
+    .body .headerVertical {
+        z-index: 0;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 7rem;
+        display: none;
+    }
+    .body .headerVertical .elementsVertical {
+        display: flex;
+        flex-direction: row;
+        padding: 0.6rem;
+    }
+    .closeMenu i {
+        font-size: 2rem;
+        padding-top: 2rem;
+    }
+    .headerVertical .monitory label,
+    .headerVertical .graph label,
+    .headerVertical .settings label {
+        font-size: 1.30rem !important;
+    }
+    .headerVertical .monitory .fa-desktop,
+    .headerVertical .graph .fa-chart-line,
+    .headerVertical .settings .fa-cog {
+        font-size: 2.5rem !important;
+    }
+    .headerVertical .monitory .fa-desktop,
+    .headerVertical .graph .fa-chart-line,
+    .headerVertical .settings .fa-cog {
+        font-size: 2rem;
+    }
+    .main .card {
+        z-index: -1;
+    }
+    .graphModify .actionGraph .divDate {
+        display: flex;
+        flex-direction: column;
+    }
+    .graphModify .actionGraph .divDate .button {
+        align-self: center;
+    }
+    .graphModify .actionGraph .divDate .btn-primary {
+        width: 12rem !important;
+        font-size: 1.3rem;
+    }
+}
+
+
+/* ANIMATION SCREEN VERTICAL */
 
 @keyframes slide-right {
     0% {
@@ -159,5 +228,30 @@
     100% {
         -webkit-transform: translateX(-230px);
         transform: translateX(-230px);
+    }
+}
+
+
+/* ANIMATION SCREEN HORIZONTAL */
+
+@keyframes slide-bottom {
+    0% {
+        -webkit-transform: translateY(-110px);
+        transform: translateY(-110px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(-200px);
+        transform: translateY(-200px);
     }
 }
