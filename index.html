@@ -6,75 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Plug</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/graph/graph.css">
-    <link rel="stylesheet" href="css/monitory/monitory.css">
-    <link rel="stylesheet" href="css/settings/settings.css">
-    <link rel="stylesheet" href="css/headerVertical/headerVertical.css">
-    <link rel="stylesheet" href="css/headerHorizontal/headerHorizontal.css">
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
     <!-- toogle button -->
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
 </head>
 
 <body>
 
-    <div class="body">
-        <div class="headerHorizontal">
-            <div class="openMenu">
-                <i class="fas fa-bars"></i>
+    <div class="mainContainer">
+        <div class="mainContainer__header">
+            <div class="header__openMenu">
+                <i class="fas fa-bars sizeIcon"></i>
             </div>
-            <div class="title">
-                <i class="fas fa-plug"></i>
+            <div class="header__title">
+                <i class="fas fa-plug sizeIcon"></i>
                 <h1>SMART PLUG</h1>
             </div>
         </div>
 
-        <div class="headerVertical">
-            <div class="elementsVertical">
-                <div class="closeMenu"><i class="fas fa-times"></i></div>
-                <div class="monitory" onclick="selectedSector('monitory')">
-                    <label for="monitoryIcon">Monitoramento</label>
-                    <i id="monitoryIcon" class="fas fa-desktop"></i>
-                </div>
-                <div class="graph" onclick="selectedSector('graph')">
-                    <label for="graphIcon">Gráfico</label>
-                    <i id="graphIcon" class="fas fa-chart-line"></i>
-                </div>
-                <div class="settings" onclick="selectedSector('settings')">
-                    <label for="settingsIcon">Configurações</label>
-                    <i id="settingsIcon" class="fas fa-cog"></i>
-                </div>
+        <div class="mainContainer__aside">
+            <div class="aside__closeMenu">
+                <i class="fas fa-times"></i>
             </div>
-
-        </div>
-
-        <div class="main">
-            
-            <!-- <div class="toogleButton">
-                <label for="inputToggle">Dispositivo:</label>
-                <input type="checkbox" id="inputToggle" class="toggle" checked data-toggle="toggle" data-on="Ligado" data-off="Desligado" data-onstyle="primary" data-offstyle="danger">
-            </div> -->
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-header"></div>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
+            <div class="aside__monitory" onclick="selectedSector('monitory')">
+                <label for="monitoryIcon">Monitoramento</label>
+                <i id="monitoryIcon" class="fas fa-desktop"></i>
+            </div>
+            <div class="aside__graph" onclick="selectedSector('graph')">
+                <label for="graphIcon">Gráfico</label>
+                <i id="graphIcon" class="fas fa-chart-line"></i>
+            </div>
+            <div class="aside__settings" onclick="selectedSector('settings')">
+                <label for="settingsIcon">Configurações</label>
+                <i id="settingsIcon" class="fas fa-cog"></i>
             </div>
         </div>
 
-        <div hidden class="graphModify">
-            <div class="actionGraph">
-                <div class="divSelect">
+        <div class="mainContainer__mainMonitory">
+            <div class="mainMonitory__power">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <label class="status"></label>
+                        <strong class="mr-auto">Bootstrap</strong>
+                        <small class="text-muted">11 mins ago</small>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="toast-body">
+                        <button type="button" class="btn btn-outline-dark" value="false">OFF</button>
+                        <button type="button" class="btn btn-outline-primary" value="true">ON</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mainMonitory__containerCards">
+                <div class="mainMonitory__row"></div>
+                <div class="containerCards__cards">
+                    <div class="card" style="width: 21rem;">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mainMonitory__newCards">
+                <i class="fas fa-plus-circle"></i>
+            </div>
+        </div>
+
+        <div class="mainContainer__mainStatistic" hidden>
+            <div class="mainStatistic__settingsGraph">
+                <div class="settingsGraph__divSelect">
                     <label for="selectTypeGraph">Tipo do gráfico:</label>
                     <select class="form-control" id="selectTypeGraph">
                         <option value="line" selected>Linha</option>
@@ -82,32 +123,38 @@
                         <option value="radar">Radar</option>
                     </select>
                 </div>
-                <div class="divDate">
-                    <label for="date">Data:</label>
-                    <input id="date" type="date">
-                    <div class="button">
+                <div class="settingsGraph__divDate">
+                    <div class="divDate__firstDate">
+                        <label for="de">de:</label>
+                        <input id="date" type="date" id="de">
+                    </div>
+                    <div class="divDate__lastDate">
+                        <label for="ate">até:</label>
+                        <input id="date" type="date" id="ate">
+                    </div>
+                    <div class="divDate__button">
                         <button type="submit" class="btn btn-primary">ok</button>
                     </div>
                 </div>
             </div>
-            <div class="divGraph">
+            <div class="mainStatistic__divGraph">
                 <canvas class="myChart"></canvas>
             </div>
         </div>
 
-        <div hidden class="settingsModify">
-            <div class="changeDeviceName">
+        <div class="mainContainer__mainSettings" hidden>
+            <div class="mainSettings__changeDeviceName">
                 <label for="deviceName">Nome do dispositivo:</label>
-                <input type="text" id="deviceName" placeholder="Ex: Geladeira">
-                <div class="icons">
+                <input type="text" id="deviceName" placeholder="Ex: Televisão">
+                <div class="changeDeviceName__icons">
                     <a class="fas fa-pen" role="button"></a>
                     <a class="far fa-save" role="button"></a>
                 </div>
             </div>
-            <div class="timeStandby">
+            <div class="mainSettings__timeStandby">
                 <label for="time">Tempo para o desligamento do aparelho</label>
                 <input type="text" id="time">
-                <div class="icons">
+                <div class="timeStandby__icons">
                     <a class="fas fa-pen" role="button"></a>
                     <a class="far fa-save" role="button"></a>
                 </div>
@@ -136,15 +183,7 @@
     <script src="js/script.js"></script>
 
     <script>
-
-        // $(".toggle").change(function(){
-        //     let valueCheckbox = $("input[class='toggle']:checked").val();
-        //     if(valueCheckbox == undefined){
-        //         valueCheckbox = "off";   
-        //     }
-        //     console.log(valueCheckbox);
-        // });
-
     </script>
 </body>
+
 </html>

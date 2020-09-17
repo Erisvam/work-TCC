@@ -1,10 +1,14 @@
-$(".openMenu").click(function() {
-    $(".headerVertical").show();
+$(document).ready(function() {
+    ($(window).width() < 480) ? $(".mainContainer__aside").hide(): $(".mainContainer__aside").show();
+});
+
+$(".header__openMenu").click(function() {
+    $(".mainContainer__aside").show();
 
     ($(window).height() < 600) ? startAnimationHorizontal(): startAnimation();
 });
 
-$(".closeMenu").click(function() {
+$(".aside__closeMenu").click(function() {
     ($(window).height() < 600) ? endAnimationHorizontal(): endAnimation();
 });
 
@@ -12,29 +16,28 @@ $(".closeMenu").click(function() {
 function selectedSector(sector) {
     let section = {
         "monitory": function() {
-            $(".graphModify").attr("hidden", "true");
-            $(".settingsModify").attr("hidden", "true");
-            $(".main").removeAttr("hidden");
+            $(".mainContainer__mainMonitory").removeAttr("hidden");
+            $(".mainContainer__mainStatistic").attr("hidden", "true");
+            $(".mainContainer__mainSettings").attr("hidden", "true");
         },
         "graph": function() {
-            $(".main").attr("hidden", "true");
-            $(".settingsModify").attr("hidden", "true");
-            $(".graphModify").removeAttr("hidden");
+            $(".mainContainer__mainMonitory").attr("hidden", "true");
+            $(".mainContainer__mainStatistic").removeAttr("hidden");
+            $(".mainContainer__mainSettings").attr("hidden", "true");
         },
         "settings": function() {
-            $(".main").attr("hidden", "true");
-            $(".graphModify").attr("hidden", "true");
-            $(".settingsModify").removeAttr("hidden");
+            $(".mainContainer__mainMonitory").attr("hidden", "true");
+            $(".mainContainer__mainStatistic").attr("hidden", "true");
+            $(".mainContainer__mainSettings").removeAttr("hidden");
         }
 
     }
     section[sector]();
-
     if ($(window).width() < 1000) {
         endAnimation();
     }
 
-    if ($(window).height() < 600) {
+    if ($(window).height() < 600 || ($(window).height() < 400)) {
         endAnimationHorizontal()
     }
 
@@ -42,36 +45,36 @@ function selectedSector(sector) {
 
 // SCREEN VERTICAL
 function startAnimation() {
-    $(".headerVertical").css({
+    $(".mainContainer__aside").css({
         "animation-name": "slide-right",
         "animation-duration": "2s"
     });
 }
 
 function endAnimation() {
-    $(".headerVertical").css({
+    $(".mainContainer__aside").css({
         "animation-name": "slide-left",
         "animation-duration": "2s"
     });
     setTimeout(function() {
-        $(".headerVertical").hide();
+        $(".mainContainer__aside").hide();
     }, 2000);
 }
 
 // SCREEN HORIZONTAL
 function startAnimationHorizontal() {
-    $(".headerVertical").css({
+    $(".mainContainer__aside").css({
         "animation-name": "slide-bottom",
         "animation-duration": "2s"
     });
 }
 
 function endAnimationHorizontal() {
-    $(".headerVertical").css({
+    $(".mainContainer__aside").css({
         "animation-name": "slide-top",
         "animation-duration": "2s"
     });
     setTimeout(function() {
-        $(".headerVertical").hide();
+        $(".mainContainer__aside").hide();
     }, 2000);
 }

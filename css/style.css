@@ -1,218 +1,384 @@
-* {
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
     font-size: 16px;
 }
 
-.body {
+.mainContainer {
+    width: 100%;
+    height: 100%;
     position: relative;
+    /* border: 1px solid; */
 }
 
-.openMenu {
+
+/* HEADER */
+
+.mainContainer__header {
+    position: absolute;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    background-color: #f2f3f5;
+    border-bottom: 1px solid black;
+}
+
+.header__openMenu {
     display: none;
-}
-
-.closeMenu {
-    display: none;
-}
-
-.body .graphModify,
-.body .settingsModify {
-    margin-top: 5rem;
-    margin-left: 14rem;
     padding: 1rem;
 }
 
-
-/* MOBILEEEEE */
-
-@media screen and (min-width: 769px) {
-    .body .headerVertical {
-        animation-name: none;
-        animation-duration: initial;
-        display: initial !important;
-    }
+.sizeIcon {
+    font-size: 3rem;
 }
 
-@media screen and (max-width: 400px) {
-    .body .headerVertical .elementsVertical {
-        margin-top: 0;
-        height: 70%;
-    }
-    .body .headerVertical .monitory label,
-    .headerVertical .graph label,
-    .headerVertical .settings label {
-        display: block;
-        font-size: 1.1rem;
-        font-family: 'Montserrat', Times, serif;
-    }
-    .headerVertical .elementsVertical .closeMenu i,
-    .body .headerVertical .monitory .fa-desktop,
-    .body .headerVertical .graph .fa-chart-line,
-    .body .headerVertical .settings .fa-cog {
-        font-size: 2rem;
-    }
-    .graphModify .actionGraph .divDate {
-        display: flex;
-        flex-direction: column;
-    }
-    .graphModify .actionGraph .divDate .button {
-        align-self: center;
-    }
-    .graphModify .actionGraph .divDate .btn-primary {
-        width: 12rem !important;
-        font-size: 1.3rem;
-    }
+.header__title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.header__title h1 {
+    padding-left: 1rem;
 }
 
 
-/* mobile screen vertical */
+/* ASIDE */
 
-@media screen and (max-width: 768px) {
-    .openMenu,
-    .closeMenu {
-        display: initial;
-    }
-    .closeMenu {
-        color: white;
-        text-align: center;
-        cursor: pointer;
-    }
-    .closeMenu i {
-        font-size: 3rem;
-    }
-    .closeMenu:hover {
-        background-color: #314790;
-    }
-    .body .headerHorizontal {
-        display: flex;
-        height: auto;
-    }
-    .headerHorizontal .title h1 {
-        font-size: 2rem;
-        font-weight: bold;
-    }
-    .headerHorizontal .openMenu {
-        margin-right: 1.6rem;
-    }
-    .headerHorizontal .openMenu i {
-        font-size: 3rem;
-    }
-    .body .headerVertical {
-        display: none;
-        top: 4rem;
-        z-index: 1;
-    }
-    .body .headerVertical .elementsVertical {
-        margin-top: 0;
-        height: 90%;
-    }
-    .body .main {
-        margin: 6rem 0 0 0;
-        height: auto;
-    }
-    .main .card {
-        box-shadow: 6px 10px 14px 1px #888888;
-    }
-    .body .graphModify {
-        margin-left: 0;
-    }
-    .graphModify .actionGraph {
-        flex-direction: column;
-        align-items: center;
-    }
-    .settingsModify {
-        margin: 0 !important;
-        flex-direction: column;
-        margin-top: calc(80px + 20px) !important;
-        width: 100%;
-    }
-    .settingsModify .changeDeviceName,
-    .settingsModify .timeStandby {
-        width: 90% !important;
-        margin: 0 auto;
-        height: auto !important;
-        margin-bottom: 3rem;
-    }
-    .graphModify .actionGraph .divSelect,
-    .graphModify .actionGraph .divDate {
-        width: 100% !important;
-        margin-left: 1rem !important;
-    }
-    .graphModify .actionGraph .divSelect #selectTypeGraph,
-    .graphModify .actionGraph .divDate input {
-        width: 95% !important;
-    }
-    .graphModify .actionGraph .divDate .button {
-        display: flex;
-        justify-content: center;
-        margin-top: 2rem;
-    }
-    .graphModify .actionGraph .divDate .btn-primary {
-        width: 7rem;
-    }
+.mainContainer__aside {
+    position: absolute;
+    top: 4rem;
+    width: 15rem;
+    height: calc(100% - 4rem);
+    display: grid;
+    grid-template: "aside__monitory" 1fr "aside__graph" 1fr "aside__settings" 1fr / 1fr;
+    background-color: #3d57ae;
+}
+
+.aside__monitory {
+    grid-area: aside__monitory;
+}
+
+.aside__graph {
+    grid-area: aside__graph;
+}
+
+.aside__settings {
+    grid-area: aside__settings;
+}
+
+.aside__closeMenu {
+    display: none;
+}
+
+.aside__closeMenu,
+.aside__monitory,
+.aside__graph,
+.aside__settings {
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    align-self: center;
+    transition: .5s;
+    width: 100%;
+}
+
+.aside__closeMenu:hover,
+.aside__monitory:hover,
+.aside__graph:hover,
+.aside__settings:hover {
+    background-color: #314790;
+}
+
+.aside__monitory label,
+.aside__graph label,
+.aside__settings label {
+    display: block;
+    font-size: 1.40rem;
+    font-family: 'Montserrat', Times, serif;
+}
+
+.aside__closeMenu .fa-times,
+.aside__monitory .fa-desktop,
+.aside__graph .fa-chart-line,
+.aside__settings .fa-cog {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 
-/* mobile screen horizontal */
+/* MAIN CONTAINER__ MONITORING */
 
-@media screen and (max-height: 500px) {
-    .body .headerHorizontal {
-        z-index: 1;
-    }
-    .body .headerVertical {
-        z-index: 0;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 7rem;
-        display: none;
-    }
-    .body .headerVertical .elementsVertical {
-        display: flex;
-        flex-direction: row;
-        padding: 0.6rem;
-    }
-    .closeMenu i {
-        font-size: 2rem;
-        padding-top: 2rem;
-    }
-    .headerVertical .monitory label,
-    .headerVertical .graph label,
-    .headerVertical .settings label {
-        font-size: 1.30rem !important;
-    }
-    .headerVertical .monitory .fa-desktop,
-    .headerVertical .graph .fa-chart-line,
-    .headerVertical .settings .fa-cog {
-        font-size: 2.5rem !important;
-    }
-    .headerVertical .monitory .fa-desktop,
-    .headerVertical .graph .fa-chart-line,
-    .headerVertical .settings .fa-cog {
-        font-size: 2rem;
-    }
-    .main .card {
-        z-index: -1;
-    }
-    .graphModify .actionGraph .divDate {
-        display: flex;
-        flex-direction: column;
-    }
-    .graphModify .actionGraph .divDate .button {
-        align-self: center;
-    }
-    .graphModify .actionGraph .divDate .btn-primary {
-        width: 12rem !important;
-        font-size: 1.3rem;
-    }
+.mainContainer__mainMonitory {
+    position: absolute;
+    top: 4rem;
+    left: 15rem;
+    width: calc(100% - 15rem);
+    height: calc(100% - 4rem);
+    display: grid;
+    grid-template: "mainMonitory__containerCards mainMonitory__containerCards mainMonitory__power" 13rem "mainMonitory__containerCards mainMonitory__containerCards ." 9rem "mainMonitory__containerCards mainMonitory__containerCards mainMonitory__newCards" 13rem / .5fr .5fr 0.4fr;
 }
+
+.mainMonitory__power {
+    grid-area: mainMonitory__power;
+    align-self: end;
+}
+
+.mainMonitory__containerCards {
+    grid-area: mainMonitory__containerCards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mainMonitory__row {
+    width: 100%;
+    height: 36px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: .4rem;
+}
+
+.mainMonitory__row::after {
+    content: '→';
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.3);
+    animation: seta .5s ease-in 0s infinite alternate;
+    padding-right: 2rem;
+}
+
+.containerCards__cards {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    /* margin: 0 auto; */
+    border-radius: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-shadow: 6px 10px 14px 1px rgba(44, 44, 44, 0.5);
+}
+
+.card:first-child,
+.card+.card {
+    margin: 1rem 0 .5rem 1.5rem;
+}
+
+.card {
+    width: 24rem;
+    height: calc(100% - 5%);
+    ;
+    flex: 0 0 calc(100% - 50%);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .3);
+}
+
+.card-header {
+    height: 18rem;
+}
+
+.mainMonitory__newCards {
+    grid-area: mainMonitory__newCards;
+}
+
+.toast {
+    opacity: 1 !important;
+    box-shadow: 6px 10px 14px 1px rgba(44, 44, 44, 0.5) !important;
+}
+
+.toast-header .status {
+    width: 1rem;
+    height: 1rem;
+    border-radius: .3rem;
+    margin-bottom: 0;
+    margin-right: .5rem;
+    border: 1px solid;
+}
+
+.toast-body {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.toast-body button {
+    width: 7rem;
+}
+
+.toast-body .btn-outline-primary {
+    border-color: #3d57ae !important;
+    color: #3d57ae !important;
+}
+
+.toast-body .btn-outline-primary:hover {
+    color: white !important;
+    background-color: #3d57ae !important;
+    border-color: #3d57ae !important;
+}
+
+.mainMonitory__newCards {
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(128 128 128 / .5);
+    height: 11rem;
+    width: 18rem;
+    justify-self: center;
+    box-shadow: 6px 10px 14px 1px rgba(44, 44, 44, 0.5);
+}
+
+.mainMonitory__newCards .fa-plus-circle {
+    font-size: 8rem;
+    color: rgb(128 128 128 / 1);
+}
+
+
+/* MAIN CONTAINER__STATISTIC */
+
+.mainContainer__mainStatistic {
+    position: absolute;
+    top: 4rem;
+    left: 15rem;
+    width: calc(100% - 15rem);
+    height: calc(100% - 4rem);
+}
+
+.mainStatistic__settingsGraph {
+    display: flex;
+    padding: 1rem 0 0 1rem;
+    height: 6rem;
+}
+
+.settingsGraph__divSelect {
+    width: 13rem;
+}
+
+.settingsGraph__divDate {
+    width: 30rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.divDate__firstDate,
+.divDate__lastDate {
+    display: flex;
+    flex-direction: column;
+}
+
+.divDate__firstDate input,
+.divDate__lastDate input,
+.settingsGraph__divSelect select {
+    height: 2.3rem;
+    border: 1px solid;
+    border-radius: .4rem;
+}
+
+.divDate__button {
+    height: 100%;
+    padding-top: 2rem;
+}
+
+.divDate__button .btn-primary {
+    width: 5rem;
+    height: 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 0;
+    background-color: #3d57ae !important;
+    box-shadow: 4px 5px 5px -3px #888888;
+}
+
+.mainStatistic__divGraph {
+    border-radius: 1rem;
+    box-shadow: 6px 10px 14px 1px rgba(44, 44, 44, 0.3);
+    position: relative;
+    margin: .2rem auto;
+    height: 71vh;
+    width: 95%;
+}
+
+.myChart {
+    position: absolute;
+}
+
+
+/* MAIN CONTAINER__ SETTINGS */
+
+.mainContainer__mainSettings {
+    position: absolute;
+    top: 4rem;
+    left: 15rem;
+    width: calc(100% - 15rem);
+    height: calc(100% - 4rem);
+    display: flex;
+    justify-content: space-around;
+    padding-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.mainSettings__changeDeviceName,
+.mainSettings__timeStandby {
+    width: 23rem;
+    height: 12rem;
+    border-radius: 1rem;
+    padding: 1.9rem 2rem 0 2rem;
+    box-shadow: 6px 10px 14px 1px rgba(44, 44, 44, 0.3);
+}
+
+.mainSettings__changeDeviceName label,
+.mainSettings__timeStandby label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: bolder;
+}
+
+.mainSettings__changeDeviceName #deviceName,
+.mainSettings__timeStandby #time {
+    border-color: transparent;
+    border-bottom-color: initial;
+    width: 100%;
+}
+
+.mainSettings__changeDeviceName #deviceName:hover,
+.mainSettings__timeStandby #timeStandby:hover {
+    outline-color: transparent;
+}
+
+.changeDeviceName__icons,
+.timeStandby__icons {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.changeDeviceName__icons a,
+.timeStandby__icons a {
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+
+/* IPAD */
+
+
+/* @media screen and (max-width: 640px) {} */
 
 
 /* ANIMATION SCREEN VERTICAL */
 
 @keyframes slide-right {
     0% {
-        -webkit-transform: translateX(-210px);
-        transform: translateX(-210px);
+        -webkit-transform: translateX(-240px);
+        transform: translateX(-240px);
     }
     100% {
         -webkit-transform: translateX(0px);
@@ -226,8 +392,8 @@
         transform: translateX(0);
     }
     100% {
-        -webkit-transform: translateX(-230px);
-        transform: translateX(-230px);
+        -webkit-transform: translateX(-240px);
+        transform: translateX(-240px);
     }
 }
 
@@ -236,8 +402,8 @@
 
 @keyframes slide-bottom {
     0% {
-        -webkit-transform: translateY(-110px);
-        transform: translateY(-110px);
+        -webkit-transform: translateY(-120px);
+        transform: translateY(-120px);
     }
     100% {
         -webkit-transform: translateY(0);
@@ -251,7 +417,16 @@
         transform: translateY(0);
     }
     100% {
-        -webkit-transform: translateY(-200px);
-        transform: translateY(-200px);
+        -webkit-transform: translateY(-170px);
+        transform: translateY(-170px);
+    }
+}
+
+@keyframes seta {
+    from {
+        right: 30px;
+    }
+    to {
+        right: 20px;
     }
 }
