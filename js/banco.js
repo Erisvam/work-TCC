@@ -82,14 +82,24 @@ $(".toast-body button").click(function() {
     writeValue($(this).val())
     $(this).blur();
     if ($(this).val() == "true") {
-        $(".status").css({
-            "background-color": "#3d57ae",
-            "border-color": "#3d57ae"
+        $(".btn-outline-primary").css({
+            "background-color": "#4eae3d",
+            "color": "#fff"
+        });
+        $(".btn-outline-dark").css({
+            "background-color": "transparent",
+            "color": "#e15757",
+            "border-color": "#e15757"
         });
     } else {
-        $(".status").css({
-            "background-color": "#212529",
-            "border-color": "212529"
+        $(".btn-outline-dark").css({
+            "background-color": "#e15757",
+            "color": "#fff"
+        });
+        $(".btn-outline-primary").css({
+            "background-color": "transparent",
+            "color": "#4eae3d",
+            "border-color": "#4eae3d"
         });
     }
 });
