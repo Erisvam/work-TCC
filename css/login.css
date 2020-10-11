@@ -1,0 +1,178 @@
+* {
+    font-size: 16px;
+}
+
+.conteiner {
+    margin: 0 !important;
+    background-color: #3d57ae !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.messageSuccess {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #3d57ae;
+    height: 0;
+    padding: 0rem 3rem 0 0;
+    display: none;
+}
+
+.messageSuccess__alertSuccess {
+    height: 7rem;
+    width: 30rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+}
+
+.conteiner__logo h1 {
+    font-size: 5rem;
+}
+
+.conteiner__logo {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: 'Montserrat', Times, serif;
+    align-items: flex-end;
+}
+
+.conteiner__logo .fa-plug {
+    font-size: 8rem;
+    margin-right: 2rem;
+}
+
+.container__loginContent {
+    border: 1px solid;
+    width: 70rem;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    border-top: 0;
+}
+
+.form__nameWifi small,
+.form__namePassword small {
+    font-weight: 600;
+    color: black;
+}
+
+.form__divButton>a {
+    background-color: #3d57ae;
+    font-size: 1.9rem;
+}
+
+.titleModal {
+    display: inline;
+}
+
+.modal-header span {
+    font-size: 3rem;
+}
+
+.fildInvalid {
+    color: red !important;
+    font-weight: 600;
+    display: initial !important;
+}
+
+.fildValid {
+    display: none;
+}
+
+@keyframes slide-bottom {
+    0% {
+        -webkit-transform: translateY(-100);
+        transform: translateY(-100px);
+    }
+    100% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(2px);
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0px);
+    }
+    100% {
+        -webkit-transform: translateY(-100px);
+        transform: translateY(-100px);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .conteiner {
+        justify-content: flex-start;
+    }
+    .logo {
+        align-items: center;
+        margin-top: 10rem;
+    }
+    .logo .fa-plug {
+        font-size: 13rem;
+    }
+    .logo h1 {
+        font-size: 6rem;
+    }
+    .login-content .form {
+        width: auto;
+        background-color: transparent;
+        box-shadow: initial;
+    }
+    .login-content .div-password {
+        margin-top: 2rem;
+    }
+    .div-login,
+    .div-password {
+        display: flex;
+        flex-direction: column;
+        padding: 4rem;
+        background-color: white;
+        border: 1px solid;
+        box-shadow: 10px 14px 15px 0px #000 !important;
+    }
+    .div-login div,
+    .div-password div {
+        display: flex;
+        border-bottom: 1px solid black;
+    }
+    .div-login input,
+    .div-password input {
+        border-top: transparent;
+        border-left: transparent;
+        border-right: transparent;
+        margin-left: 1rem;
+    }
+    .div-login label,
+    .div-login input,
+    .div-password label,
+    .div-password input {
+        font-size: 4rem;
+    }
+    .div-login label:nth-child(2),
+    .div-password label:nth-child(2) {
+        font-size: 2.3rem;
+        margin-left: 2rem;
+        font-weight: bold;
+    }
+    .div-button {
+        text-align: center;
+        width: 100%;
+        margin-top: 3rem;
+    }
+    .div-button a {
+        width: 30rem !important;
+        font-size: 5rem;
+        color: white !important;
+        border-radius: 2rem;
+        box-shadow: 10px 14px 15px 0px #000 !important;
+    }
+}

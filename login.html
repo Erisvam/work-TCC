@@ -2,58 +2,97 @@
 
 <head>
     <title>Login - SMART PLUG</title>
-    <link rel="stylesheet" href="css/login/login.css">
+    <link rel="stylesheet" href="css/login.css">
 
-    <!--bootstrap css-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-
+    <div class="messageSuccess">
+        <div class="alert alert-success messageSuccess__alertSuccess" role="alert">
+            Cadastro realizado com sucesso !!
+        </div>
+    </div>
     <div class="conteiner">
-        <div class="logo">
+        <div class="conteiner__logo">
             <i class="fas fa-plug"></i>
             <h1>SMART PLUG</h1>
         </div>
-        <div class="login-content">
-            <form class="form">
-                <div class="div-login">
-                    <div>
-                        <label for="search" class="col-form-label">Login:</label>
-                        <input type="text" class="form-control" id="search" placeholder="Ex: login">
-                    </div>
-                    <label for="search" class="col-form-label label-information">nome do seu roteador</label>
+        <div class="container__loginContent">
+            <form class="loginContent__form">
+                <div class="form__nameWifi form-group">
+                    <label for="search" class="col-form-label">Login:</label>
+                    <input type="text" class="form-control" id="userLogin" placeholder="Ex: login">
+                    <small class="form-text text-muted" style="display: block;">nome do seu roteador</small>
+                    <small id="userLoginError" class="form-text text-muted" hidden>Nome inválido!</small>
                 </div>
-                <div class="div-password">
-                    <div>
-                        <label for="passwd" class="col-form-label">Senha:</label>
-                        <input type="password" class="form-control" id="passwd" placeholder="Ex: senha">
-                    </div>
-                    <label for="passwd" class="col-form-label label-information">senha do seu roteador</label>
+                <div class="form__namePassword  form-group">
+                    <label for="passwd" class="col-form-label">Senha:</label>
+                    <input type="password" class="form-control" id="passwordAccess" placeholder="Ex: senha">
+                    <small class="form-text text-muted" style="display: block;">Senha de acesso</small>
+                    <small id="passwordAccessError" class="form-text text-muted" hidden>Senha inválida!</small>
                 </div>
-                <div class="div-button">
-                    <a type="button" class="btn btn-primary" role="button" id="btn-entrar" onclick="registerUser()">Entrar</a>
+                <div class="form__divButton">
+                    <a role="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegister" tabindex="0">registre-se</a>
+                    <a type="button" class="btn btn-primary" role="button" id="btn-entrar" onclick="logIn()" tabindex="0">Entrar</a>
                 </div>
             </form>
         </div>
+
     </div>
 
-
+    <div class="modal fade" id="modalRegister" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="titleModal modal-title">Registro</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nameWifi" id="labelNameWifi">Nome da rede Wi-fi:</label>
+                            <input type="text" class="form-control" id="nameWifi">
+                            <small id="nameWifiError" class="form-text text-muted" hidden>Campo invalido</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordWifi">Senha da rede Wi-fi:</label>
+                            <input type="password" class="form-control" id="passwordWifi">
+                            <small id="passwordWifiError" class="form-text text-muted" hidden>Campo invalido</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordAcess">Senha de acesso:</label>
+                            <input type="password" class="form-control" id="passwordAcess">
+                            <small id="passwordAcessError" class="form-text text-muted" hidden>Campo invalido</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick="registerUser();">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--firebase-->
     <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
-
     <!--icons-->
     <script src="https://kit.fontawesome.com/6b55f94eeb.js" crossorigin="anonymous"></script>
     <!--jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- modal -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- banco -->
     <script src="js/banco.js"></script>
+
 </body>
 
 </html>
