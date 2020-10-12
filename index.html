@@ -41,7 +41,7 @@
                 <i id="monitoryIcon" class="fas fa-desktop"></i>
             </div>
             <div class="aside__graph" onclick="selectedSector('Statistic')">
-                <label for="graphIcon">Gráfico</label>
+                <label for="graphIcon">Estatística</label>
                 <i id="graphIcon" class="fas fa-chart-line"></i>
             </div>
         </div>
@@ -54,8 +54,8 @@
                         </button>
                     </div>
                     <div class="toast-body">
-                        <button type="button" class="btn btn-outline-dark" value="false">OFF</button>
-                        <button type="button" class="btn btn-outline-primary" value="true">ON</button>
+                        <button type="button" class="btn btn-outline-dark" value="0">OFF</button>
+                        <button type="button" class="btn btn-outline-primary" value="1">ON</button>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 <div class="containerCards__cards">
                     <div class="card" style="width: 21rem;">
                         <div class="card-header">
-                            <span>2.5 A</span>
+                            <span class="currentData">0 W</span>
                         </div>
                         <div class="card-body">
                             <div class="cardTitle">
@@ -72,7 +72,8 @@
                                 <div class="cardTitle__editTitle">
                                     <div class="editTitle__form">
                                         <label for="inputTitle">nome do dispositivo:</label>
-                                        <input type="text" class="form-control  inputTitle" id="inputTitle" placeholder="Ex: Tv">
+                                        <input type="text" class="form-control  inputTitle" id="inputTitle" placeholder="Ex: computador">
+                                        <small id="inputTitleError" class="form-text text-muted" hidden>Nome inválido!</small>
                                     </div>
                                     <div class="editTitle__buttons">
                                         <a class="far fa-save" id="editTitle__buttons__saveTitle" title="salvar" role="button"></a>
@@ -87,7 +88,10 @@
                                     <div class="editSetTimeOut__form">
                                         <label for="inputTime">Tempo:</label>
                                         <div class="form__input">
-                                            <input type="text" class="form-control  inputTime" id="inputTime" placeholder="Ex: 1 minuto">
+                                            <div>
+                                                <input type="text" class="form-control  inputTime" id="inputTime" placeholder="Ex: 1 minuto">
+                                                <small id="inputTimeError" class="form-text text-muted" hidden>Time inválido!</small>
+                                            </div>
                                             <a role="button" class="btn btn-secondary input__information" data-container="body" data-toggle="popover" data-placement="top" data-content="EXEMPLICANDO FALANDO O QUE É TEMPORIZADOR.">
                                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
@@ -103,29 +107,63 @@
                                 </div>
                                 <a class="fas fa-pen  timeDefault" id="editTime" title="editar" role="button"></a>
                             </div>
+                            <div class="cardBody__amperagem">
+                                <h5 class="amperagemDefault" id="amperagemCard">Amperagem: </h5>
+                                <div class="cardAmperagem__editAmperagem">
+                                    <div class="editAmperagem__form">
+                                        <label for="inputAmperagem">Amperagem do dispositivo:</label>
+                                        <input type="text" class="form-control  inputAmperagem" id="inputAmperagem" placeholder="Ex: 5A">
+                                        <small id="inputAmperagemError" class="form-text text-muted" hidden>Amperagem inválido!</small>
+                                    </div>
+                                    <div class="editTitle__buttons">
+                                        <a class="far fa-save" id="editTitle__buttons__saveAmperagem" title="salvar" role="button"></a>
+                                        <a class="fas fa-arrow-left" id="editTitle__buttons__backAmperagem" title="voltar" role="button"></a>
+                                    </div>
+                                </div>
+                                <a class="fas fa-pen amperagemDefault" id="editAmperagem" title="editar" role="button"></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 21rem;">
                         <div class="card-header">
-                            <span>15.5 A</span>
+                            <span class="">2.5 W</span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="cardTitle">
+                                <h5> Computador</h5>
+                                <a class="fas fa-pen" title="editar" role="button"></a>
+                            </div>
+                            <div class="cardBody__setTimeOut">
+                                <h5>Temporizador: 2 minuto</h5>
+                                <a class="fas fa-pen" title="editar" role="button"></a>
+                            </div>
+                            <div class="cardBody__amperagem">
+                                <h5>Amperagem: 5 A</h5>
+                                <a class="fas fa-pen" title="editar" role="button"></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 21rem;">
                         <div class="card-header">
-                            <span>21.5 A</span>
+                            <span class="">3.5 W</span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="cardTitle">
+                                <h5> Computador - Sala</h5>
+                                <a class="fas fa-pen" title="editar" role="button"></a>
+                            </div>
+                            <div class="cardBody__setTimeOut">
+                                <h5>Temporizador: 4 minuto</h5>
+                                <a class="fas fa-pen" title="editar" role="button"></a>
+                            </div>
+                            <div class="cardBody__amperagem">
+                                <h5>Amperagem: 4 A</h5>
+                                <a class="fas fa-pen" title="editar" role="button"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="mainMonitory__newCards">
                 <i class="fas fa-plus-circle"></i>
             </div>

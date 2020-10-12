@@ -24,97 +24,14 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-
-//gerador de IDs 
-// let date = new Date();
-// var time = date.getTime();
-
-//cadastrar nome e senha do roteador
-// function registerUser() {
-//     time += 1;
-
-//     let routerName = $("#search").val();
-//     let routerPasswd = $("#passwd").val();
-
-//     if (routerName && routerPasswd) {
-//         var user = {
-//             id: time.toString(),
-//             description: routerName,
-//             password: routerPasswd
-//         }
-//         let banco = firebase.database().ref('router/');
-//         banco.set(user);
-//     } else {
-//         // put on message of error
-//     }
-// }
-
-
 var response;
 readDataBase()
-
-function read() {
-    const banco = firebase.database().ref();
-
-    banco.on("value", (snapshot) => {
-        response = snapshot.val();
-
-        // let getUsuario = response.usuario;
-        // let getDispositivos = response.dispositivos
-
-        // let titleCard = $("#titleCard");
-        // let timer = $("#timer");
-        // for (const iterator of getDispositivos) {
-        //     $(titleCard).html(iterator.nomeDispositivo);
-        //     $(timer).html(`Temporizador: <strong>${iterator.temporizador} minuto</strong>`);
-        // }
-
-        // console.log(Object.values(response.LDR)[Object.values(response.LDR).length - 1]);
-
-        // for (let index = 0; index < Object.values(response.LDR).length; index++) {
-        //     console.log(Object.values(response.LDR)[index]);
-        // }
-
-    });
-}
-
-function writeValue(id) {
-    let banco = firebase.database().ref("led");
-    banco.set(Boolean(id));
-}
 
 // function deletar(id) {
 //     let banco = firebase.database().ref('node/info/' + id);
 //     banco.remove();
 //     $("#deleteInput").val("");
 // }
-
-
-$(".toast-body button").click(function() {
-    writeValue($(this).val())
-    $(this).blur();
-    if ($(this).val() == "true") {
-        $(".btn-outline-primary").css({
-            "background-color": "#4eae3d",
-            "color": "#fff"
-        });
-        $(".btn-outline-dark").css({
-            "background-color": "transparent",
-            "color": "#e15757",
-            "border-color": "#e15757"
-        });
-    } else {
-        $(".btn-outline-dark").css({
-            "background-color": "#e15757",
-            "color": "#fff"
-        });
-        $(".btn-outline-primary").css({
-            "background-color": "transparent",
-            "color": "#4eae3d",
-            "border-color": "#4eae3d"
-        });
-    }
-});
 
 var valueNameRoteador;
 var valuePasswordRoteador;
@@ -127,10 +44,18 @@ const FIELD_VALID = "fildValid";
 const STRING_EMPTY = "";
 const ATTR_HREF = "href";
 const PAGINA_INDEX = "index.html"
+const PLACEHOLDER = "placeHolder";
+const DIGIT_OF_THE_MONTH_OR_DAY = "0";
+const DASH_OF_THE_DATE = "-";
+const ON_WITH_COLOR = "buttonON";
+const ON_TRANSPARENT = "buttonONTransparent";
+const OFF_WITH_COLOR = "buttonOFF";
+const OFF_TRANSPARENT = "buttonOFFTransparent";
 const userDate = {};
 
 // REGISTER USER
 const registerUser = function() {
+    const USER_PATH = "/usuario";
     const registerValid = validateUserRegistration().every(function() {
         return FIELD_OK;
     });
@@ -142,13 +67,16 @@ const registerUser = function() {
             senhaWifi: valuePasswordRoteador,
             senhaDeAcesso: valuePasswordAccess
         }
-        let banco = firebase.database().ref('/usuario');
-        banco.set(user);
+        accessBank(USER_PATH, user);
         clearModalAndClose(".close");
         setTimeout(function() {
             showMessageSuccess();
         }, 600);
     }
+}
+const accessBank = (path, object) => {
+    let banco = firebase.database().ref(path);
+    banco.set(object);
 }
 
 function readDataBase() {
@@ -156,15 +84,97 @@ function readDataBase() {
 
     bank.on("value", (snapshot) => {
         response = snapshot.val();
-        readUser(response);
+        readUser(response.usuario);
+        readDevice(response.dispositivos.XPTO)
     });
 }
 
-
 const readUser = response => {
-    userDate.nameWifi = response.usuario.nomeWifi;
-    userDate.passwordAccess = response.usuario.senhaDeAcesso;
+    userDate.nameWifi = response.nomeWifi;
+    userDate.passwordAccess = response.senhaDeAcesso;
 }
+
+const readDevice = response => {
+    let nome = response.nome;
+    let statusOnOff = response.onOff;
+    let temporizador = response.temporizador;
+    let amperagem = response.amperagem;
+    let consumo = response.consumo;
+
+    showInformations(nome, temporizador, amperagem);
+    readConsumption(consumo);
+    readStatusDevice(statusOnOff);
+
+}
+const readStatusDevice = status => {
+    debugger;
+    let buttonON = $(".btn-outline-primary");
+    let buttonOFF = $(".btn-outline-dark");
+
+    if (status) {
+        buttonON.addClass(ON_WITH_COLOR);
+        buttonON.removeClass(ON_TRANSPARENT);
+
+        buttonOFF.removeClass(OFF_WITH_COLOR);
+        buttonOFF.addClass(OFF_TRANSPARENT);
+        return;
+    } else {
+        buttonOFF.addClass(OFF_WITH_COLOR);
+        buttonOFF.removeClass(OFF_TRANSPARENT);
+
+        buttonON.removeClass(ON_WITH_COLOR);
+        buttonON.addClass(ON_TRANSPARENT);
+        return;
+    }
+}
+const showInformations = (nome, temporizador, amperagem) => {
+    showTitle(nome);
+    showTimer(temporizador);
+    showAmperage(amperagem);
+
+    $("#timer").html(`Temporizador: ${temporizador} minuto`);
+    $("#amperagemCard").html(`Amperagem: ${amperagem}`);
+}
+
+const showTitle = nome => {
+    let titleCard = "#titleCard";
+    let messageTitle = `${nome}`;
+    let valuePlaceHolder = "#inputTitle";
+    let messageTitlePlaceHolder = `Ex: ${nome}`;
+
+    $(titleCard).html(messageTitle);
+    $(valuePlaceHolder).attr(PLACEHOLDER, messageTitlePlaceHolder);
+}
+
+const showTimer = temporizador => {
+    let timerTitle = "#timer";
+    let messageTimer = `Temporizador: ${temporizador} minuto`;
+    let messageTimerPlaceHolder = `Ex: ${temporizador} minuto`;
+    let valuePlaceHolder = "#inputTime";
+
+    $(timerTitle).html(messageTimer);
+    $(valuePlaceHolder).attr(PLACEHOLDER, messageTimerPlaceHolder);
+}
+
+const showAmperage = amperagem => {
+    let amperagemTitle = "#amperagemCard";
+    let messageAmperagem = `Amperagem: ${amperagem} A`;
+    let valuePlaceHolder = "#inputAmperagem";
+    let messageAmperagemPlaceHolder = `Ex: ${amperagem} A`;
+
+    $(amperagemTitle).html(messageAmperagem);
+    $(valuePlaceHolder).attr(PLACEHOLDER, messageAmperagemPlaceHolder);
+}
+
+const readConsumption = response => {
+    let currentData = response[currentDate()].atual;
+    let messageCurrentData = `${currentData} W`;
+
+    $(".currentData").html(messageCurrentData);
+    // console.log(convertObjectToArry(response))
+}
+
+// const convertObjectToArry = (object) => Object.values(object);
 
 const logIn = function() {
     let userLogin = $("#userLogin").val();
@@ -238,24 +248,35 @@ const fildRightOrError = (condicional, messageError) => {
         return FIELD_ERROR;
     }
 }
+
 const showMessageSuccess = () => {
     setTimeout(() => {
         animation("top");
-    }, 2000);
+    }, 1500);
 
-    $(".messageSuccess").show();
+    $(".messageSuccess__alertSuccess").css("opacity", "1");
     animation("bottom");
 }
 
 function animation(side) {
     $(".messageSuccess__alertSuccess").css({
         "animation-name": `slide-${side}`,
-        "animation-duration": "2s"
+        "animation-duration": "1.5s"
     });
 
     if (side === "top") {
         setTimeout(function() {
-            $(".messageSuccess").hide();
-        }, 2000);
+            $(".messageSuccess__alertSuccess").css("opacity", "0");
+        }, 1500);
     }
+}
+
+const currentDate = () => {
+    let date = new Date();
+    let currentDay = date.getDate();
+    let currentMonth = date.getMonth() + 1;
+    let currentYear = date.getFullYear();
+
+    let fullDate = `${currentYear}-${currentMonth}-${currentDay}`;
+    return fullDate;
 }

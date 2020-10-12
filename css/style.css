@@ -8,6 +8,16 @@ body {
     font-family: 'Montserrat', Times, serif !important;
 }
 
+.fildInvalid {
+    color: red !important;
+    font-weight: 600;
+    display: initial !important;
+}
+
+.fildValid {
+    display: none;
+}
+
 .mainContainer {
     width: 100%;
     height: 100%;
@@ -204,19 +214,23 @@ body {
 }
 
 .cardTitle .fa-pen,
-.cardTitle h5 {
+.cardTitle h5,
+.cardBody__amperagem .fa-pen,
+.cardBody__amperagem h5 {
     display: initial;
 }
 
-.cardTitle__editTitle {
+.cardTitle__editTitle,
+.cardAmperagem__editAmperagem {
     width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     display: none;
 }
 
-.cardTitle .fa-pen {
+.cardTitle .fa-pen,
+.cardBody__amperagem .fa-pen {
     color: #a1a1a1;
     font-size: 1.5rem;
     text-decoration: none;
@@ -235,11 +249,13 @@ body {
     text-decoration: none;
 }
 
-.editTitle__form {
+.editTitle__form,
+.editAmperagem__form {
     width: 60%;
 }
 
-.cardTitle {
+.cardTitle,
+.cardBody__amperagem {
     margin-top: 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -266,7 +282,7 @@ body {
 
 .setTimeOut__editSetTimeOut {
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     margin-top: 2rem;
     width: 100%;
     display: none;
@@ -283,12 +299,12 @@ body {
 }
 
 .form__input input {
-    width: 80%;
+    width: 100%;
 }
 
 .editSetTimeOut__form .form__input {
     display: flex;
-    align-items: flex-end;
+    align-items: end;
 }
 
 .input__information {
@@ -438,6 +454,28 @@ body {
 
 .myChart {
     position: absolute;
+}
+
+.buttonON {
+    background-color: #4eae3d;
+    color: #fff;
+}
+
+.buttonOFFTransparent {
+    background-color: transparent;
+    color: #e15757;
+    border-color: #e15757
+}
+
+.buttonOFF {
+    background-color: #e15757;
+    color: #fff;
+}
+
+.buttonONTransparent {
+    background-color: transparent;
+    color: #4eae3d;
+    border-color: #4eae3d;
 }
 
 
