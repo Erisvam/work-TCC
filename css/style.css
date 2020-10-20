@@ -211,6 +211,7 @@ body {
     background-color: #3d57ae;
     color: #fff;
     display: inline;
+    padding-right: 0;
 }
 
 .cardTitle .fa-pen,
@@ -224,7 +225,7 @@ body {
 .cardAmperagem__editAmperagem {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     display: none;
 }
@@ -262,10 +263,27 @@ body {
     padding-right: 1rem;
 }
 
+.card-body {
+    overflow-y: auto;
+}
+
 .cardBody__setTimeOut {
     display: flex;
     justify-content: space-between;
     padding-right: 1rem;
+}
+
+.cardTitle,
+.cardBody__setTimeOut {
+    margin: 1rem 0;
+}
+
+.cardBody__amperagem {
+    margin: 2rem 0;
+}
+
+.mainContainer__mainMonitory {
+    padding-bottom: 0;
 }
 
 .cardBody__setTimeOut .fa-pen,
@@ -278,6 +296,10 @@ body {
     color: #a1a1a1;
     font-size: 1.5rem;
     text-decoration: none;
+}
+
+.cardBody__setTimeOut>h5 {
+    width: 9rem;
 }
 
 .setTimeOut__editSetTimeOut {

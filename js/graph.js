@@ -1,21 +1,20 @@
 var context = document.getElementsByClassName('myChart');
-mainGraph(context, $("#selectTypeGraph").val());
-
 
 $("#selectTypeGraph").change(function() {
+    debugger;
     graph.destroy();
     var contextNew = document.getElementsByClassName('myChart');
-    mainGraph(contextNew, $(this).val());
+    mainGraph(contextNew, $(this).val(), arrAmount);
 });
 
 //GRAPH
 var graph;
 
-function mainGraph(context, typeGraph) {
+function mainGraph(context, typeGraph, data) {
     graph = new Chart(context, {
         type: typeGraph,
         data: {
-            labels: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dec'],
+            labels: ['out', 'nov', 'dev', 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set '],
             datasets: [{
                 label: "Dataset #1",
                 backgroundColor: "rgba(255,99,132,0.2)",
@@ -23,7 +22,7 @@ function mainGraph(context, typeGraph) {
                 borderWidth: 2,
                 hoverBackgroundColor: "rgba(255,99,132,0.4)",
                 hoverBorderColor: "rgba(255,99,132,1)",
-                data: [65, 59, 20, 81, 56, 55, 40],
+                data: data,
             }]
         },
         options: {

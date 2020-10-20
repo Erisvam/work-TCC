@@ -18,6 +18,7 @@
         z-index: 1;
         height: 100%;
         top: 0;
+        padding-bottom: 5rem;
     }
     /* MONITORY MOBILE */
     .mainContainer__mainMonitory {
@@ -28,6 +29,7 @@
         left: 0;
         position: absolute;
         top: 4rem;
+        padding-bottom: 5rem;
     }
     .mainMonitory__power {
         display: flex;
@@ -52,7 +54,7 @@
         animation: seta .5s ease-in 0s infinite alternate;
     }
     .mainMonitory__containerCards {
-        height: 30rem;
+        height: 40rem;
         flex-direction: column;
     }
     .containerCards__cards {
@@ -83,6 +85,22 @@
     .mainMonitory__newCards .fa-plus-circle {
         font-size: 3rem;
     }
+    .card-body,
+    .cardBody__amperagem {
+        padding-right: 0;
+    }
+    .cardTitle,
+    .cardBody__amperagem {
+        padding-right: 1rem;
+    }
+    .cardTitle__editTitle,
+    .setTimeOut__editSetTimeOut,
+    .cardAmperagem__editAmperagem {
+        align-items: flex-end;
+    }
+    svg {
+        height: 2.5rem;
+    }
     /* GRAPH MOBILE */
     .mainContainer__mainStatistic {
         display: flex;
@@ -90,6 +108,8 @@
         width: 100%;
         height: 100%;
         left: 0;
+        height: auto;
+        padding-bottom: 7rem;
     }
     .mainStatistic__settingsGraph {
         flex-direction: column;
@@ -114,6 +134,18 @@
     .divDate__button .btn-primary {
         width: 50%;
     }
+    .card-header span {
+        font-size: 20vw;
+    }
+    .cardBody__setTimeOut h5 {
+        width: 9rem;
+    }
+    .card-body {
+        overflow-y: auto;
+    }
+    .card-header span {
+        font-size: 20vw;
+    }
 }
 
 
@@ -136,5 +168,15 @@
     .aside__monitory,
     .aside__graph {
         margin-right: 1rem;
+    }
+    .cardTitle,
+    .cardBody__setTimeOut {
+        margin: 1rem 0;
+    }
+    .cardBody__amperagem {
+        margin: 2rem 0;
+    }
+    .mainContainer__mainMonitory {
+        padding-bottom: 0;
     }
 }

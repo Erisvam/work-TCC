@@ -49,7 +49,7 @@
 
 .container__loginContent {
     border: 1px solid;
-    width: 70rem;
+    width: 50%;
     margin: 0 auto;
     padding: 2rem;
     background-color: #fff;
@@ -86,6 +86,72 @@
     display: none;
 }
 
+
+/* @media screen and (min-width: 0px) and (max-width: 600px) {
+
+.conteiner__logo .fa-plug {
+    font-size: 13rem;
+}
+
+.conteiner__logo h1 {
+    font-size: 8rem;
+}
+
+.container__loginContent {
+    height: 83rem;
+    width: 90%;
+}
+
+.loginContent__form {
+    height: 100%;
+}
+
+.form__nameWifi,
+.form__namePassword {
+    margin: 5rem 0;
+}
+
+.form__nameWifi label,
+.form__namePassword label {
+    font-size: 4rem;
+}
+
+.form__nameWifi input,
+.form__namePassword input {
+    height: 6rem;
+    font-size: 3rem;
+}
+
+.form__nameWifi small,
+.form__namePassword small {
+    font-size: 3rem;
+}
+
+.form__divButton {
+    margin: 5rem 0;
+}
+
+.form__divButton>a {
+    font-size: 5rem;
+    margin-right: 1rem;
+    padding: 2rem;
+}
+
+.messageSuccess {
+    justify-content: center;
+    padding: 0;
+}
+
+.messageSuccess__alertSuccess {
+    width: 90%;
+    font-size: 5rem;
+    height: 14rem;
+    padding: 2rem !important;
+}
+
+
+}  */
+
 @keyframes slide-bottom {
     0% {
         -webkit-transform: translateY(-100);
@@ -105,74 +171,5 @@
     100% {
         -webkit-transform: translateY(-100px);
         transform: translateY(-100px);
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .conteiner {
-        justify-content: flex-start;
-    }
-    .logo {
-        align-items: center;
-        margin-top: 10rem;
-    }
-    .logo .fa-plug {
-        font-size: 13rem;
-    }
-    .logo h1 {
-        font-size: 6rem;
-    }
-    .login-content .form {
-        width: auto;
-        background-color: transparent;
-        box-shadow: initial;
-    }
-    .login-content .div-password {
-        margin-top: 2rem;
-    }
-    .div-login,
-    .div-password {
-        display: flex;
-        flex-direction: column;
-        padding: 4rem;
-        background-color: white;
-        border: 1px solid;
-        box-shadow: 10px 14px 15px 0px #000 !important;
-    }
-    .div-login div,
-    .div-password div {
-        display: flex;
-        border-bottom: 1px solid black;
-    }
-    .div-login input,
-    .div-password input {
-        border-top: transparent;
-        border-left: transparent;
-        border-right: transparent;
-        margin-left: 1rem;
-    }
-    .div-login label,
-    .div-login input,
-    .div-password label,
-    .div-password input {
-        font-size: 4rem;
-    }
-    .div-login label:nth-child(2),
-    .div-password label:nth-child(2) {
-        font-size: 2.3rem;
-        margin-left: 2rem;
-        font-weight: bold;
-    }
-    .div-button {
-        text-align: center;
-        width: 100%;
-        margin-top: 3rem;
-    }
-    .div-button a {
-        width: 30rem !important;
-        font-size: 5rem;
-        color: white !important;
-        border-radius: 2rem;
-        box-shadow: 10px 14px 15px 0px #000 !important;
     }
 }

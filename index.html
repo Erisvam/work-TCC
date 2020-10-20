@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Smart Plug</title>
 
 
@@ -92,7 +93,7 @@
                                                 <input type="text" class="form-control  inputTime" id="inputTime" placeholder="Ex: 1 minuto">
                                                 <small id="inputTimeError" class="form-text text-muted" hidden>Time inválido!</small>
                                             </div>
-                                            <a role="button" class="btn btn-secondary input__information" data-container="body" data-toggle="popover" data-placement="top" data-content="EXEMPLICANDO FALANDO O QUE É TEMPORIZADOR.">
+                                            <a role="button" class="btn btn-secondary input__information" data-container="body" data-toggle="popover" data-placement="top" data-content="Definir o tempo do desligamento do aparalho após entrar em standby.">
                                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
                                                     <circle cx="8" cy="4.5" r="1"/>
@@ -182,11 +183,11 @@
                 <div class="settingsGraph__divDate">
                     <div class="divDate__firstDate">
                         <label for="de">de:</label>
-                        <input id="date" type="date" id="de">
+                        <input type="month" id="de" max="2020-09">
                     </div>
                     <div class="divDate__lastDate">
                         <label for="ate">até:</label>
-                        <input id="date" type="date" id="ate">
+                        <input type="month" id="ate">
                     </div>
                     <div class="divDate__button">
                         <button type="submit" class="btn btn-primary">ok</button>
@@ -198,6 +199,7 @@
             </div>
         </div>
     </div>
+
 
     <!--firebase-->
     <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
@@ -214,7 +216,6 @@
     <!-- popover -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <!-- banco -->
     <script src="js/banco.js"></script>
     <!-- graph -->

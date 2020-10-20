@@ -25,7 +25,11 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 var response;
-readDataBase()
+readDataBase();
+$(document).ready(function() {
+    $("#de").attr("max", currentDate().substr(0, 7));
+    $("#ate").attr("max", currentDate().substr(0, 7));
+});
 
 // function deletar(id) {
 //     let banco = firebase.database().ref('node/info/' + id);
@@ -85,7 +89,7 @@ function readDataBase() {
     bank.on("value", (snapshot) => {
         response = snapshot.val();
         readUser(response.usuario);
-        readDevice(response.dispositivos.XPTO)
+        readDevice(response.dispositivos.XPTO);
     });
 }
 
@@ -93,7 +97,7 @@ const readUser = response => {
     userDate.nameWifi = response.nomeWifi;
     userDate.passwordAccess = response.senhaDeAcesso;
 }
-
+var arrAmount;
 const readDevice = response => {
     let nome = response.nome;
     let statusOnOff = response.onOff;
@@ -101,13 +105,14 @@ const readDevice = response => {
     let amperagem = response.amperagem;
     let consumo = response.consumo;
 
+    arrAmount = readAmount(response);
+    mainGraph(context, $("#selectTypeGraph").val(), arrAmount);
     showInformations(nome, temporizador, amperagem);
     readConsumption(consumo);
     readStatusDevice(statusOnOff);
 
 }
 const readStatusDevice = status => {
-    debugger;
     let buttonON = $(".btn-outline-primary");
     let buttonOFF = $(".btn-outline-dark");
 
@@ -165,16 +170,12 @@ const showAmperage = amperagem => {
     $(amperagemTitle).html(messageAmperagem);
     $(valuePlaceHolder).attr(PLACEHOLDER, messageAmperagemPlaceHolder);
 }
-
 const readConsumption = response => {
     let currentData = response[currentDate()].atual;
     let messageCurrentData = `${currentData} W`;
 
     $(".currentData").html(messageCurrentData);
-    // console.log(convertObjectToArry(response))
 }
-
-// const convertObjectToArry = (object) => Object.values(object);
 
 const logIn = function() {
     let userLogin = $("#userLogin").val();
@@ -279,4 +280,31 @@ const currentDate = () => {
 
     let fullDate = `${currentYear}-${currentMonth}-${currentDay}`;
     return fullDate;
+}
+
+const readAmount = (consumption) => {
+    let year = "2020";
+    let currentMonth = currentDate().substr(5, 2);
+    let lastDay = 12;
+    let lastDayOfTheMonth = 31;
+    let arrayAmount = [];
+
+    for (let month = 1; month <= lastDay; month++) {
+        for (let day = 1; day <= lastDayOfTheMonth; day++) {
+
+            let findDay = consumption.consumo[`${year}-${month}-${day}`] !== undefined;
+            if (findDay) {
+                let amount = consumption.consumo[`${year}-${month}-${day}`].montante;
+                if (currentMonth == month) {
+                    arrayAmount.push(sumOfAmount(amount));
+                }
+            }
+        }
+    }
+    return arrayAmount;
+}
+
+const sumOfAmount = (amount) => {
+    let sum = 0;
+    return sum += amount;
 }
