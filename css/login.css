@@ -1,0 +1,175 @@
+* {
+    font-size: 16px;
+}
+
+.conteiner {
+    margin: 0 !important;
+    background-color: #3d57ae !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.messageSuccess {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #3d57ae;
+    height: 0;
+    padding: 0rem 3rem 0 0;
+}
+
+.messageSuccess__alertSuccess {
+    height: 7rem;
+    width: 30rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.conteiner__logo h1 {
+    font-size: 5rem;
+}
+
+.conteiner__logo {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: 'Montserrat', Times, serif;
+    align-items: flex-end;
+}
+
+.conteiner__logo .fa-plug {
+    font-size: 8rem;
+    margin-right: 2rem;
+}
+
+.container__loginContent {
+    border: 1px solid;
+    width: 50%;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    border-top: 0;
+}
+
+.form__nameWifi small,
+.form__namePassword small {
+    font-weight: 600;
+    color: black;
+}
+
+.form__divButton>a {
+    background-color: #3d57ae;
+    font-size: 1.9rem;
+}
+
+.titleModal {
+    display: inline;
+}
+
+.modal-header span {
+    font-size: 3rem;
+}
+
+.fildInvalid {
+    color: red !important;
+    font-weight: 600;
+    display: initial !important;
+}
+
+.fildValid {
+    display: none;
+}
+
+
+/* @media screen and (min-width: 0px) and (max-width: 600px) {
+
+.conteiner__logo .fa-plug {
+    font-size: 13rem;
+}
+
+.conteiner__logo h1 {
+    font-size: 8rem;
+}
+
+.container__loginContent {
+    height: 83rem;
+    width: 90%;
+}
+
+.loginContent__form {
+    height: 100%;
+}
+
+.form__nameWifi,
+.form__namePassword {
+    margin: 5rem 0;
+}
+
+.form__nameWifi label,
+.form__namePassword label {
+    font-size: 4rem;
+}
+
+.form__nameWifi input,
+.form__namePassword input {
+    height: 6rem;
+    font-size: 3rem;
+}
+
+.form__nameWifi small,
+.form__namePassword small {
+    font-size: 3rem;
+}
+
+.form__divButton {
+    margin: 5rem 0;
+}
+
+.form__divButton>a {
+    font-size: 5rem;
+    margin-right: 1rem;
+    padding: 2rem;
+}
+
+.messageSuccess {
+    justify-content: center;
+    padding: 0;
+}
+
+.messageSuccess__alertSuccess {
+    width: 90%;
+    font-size: 5rem;
+    height: 14rem;
+    padding: 2rem !important;
+}
+
+
+}  */
+
+@keyframes slide-bottom {
+    0% {
+        -webkit-transform: translateY(-100);
+        transform: translateY(-100px);
+    }
+    100% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(2px);
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0px);
+    }
+    100% {
+        -webkit-transform: translateY(-100px);
+        transform: translateY(-100px);
+    }
+}

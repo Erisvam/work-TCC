@@ -1,0 +1,182 @@
+/* SMART PHONE SCREEN DEFAULT*/
+
+@media screen and (max-width: 880px) {
+    .header__openMenu,
+    .aside__closeMenu {
+        display: initial;
+    }
+    .header__title {
+        padding-left: .5rem;
+    }
+    .header__title h1 {
+        font-size: 2rem;
+    }
+    .mainContainer__aside {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        z-index: 1;
+        height: 100%;
+        top: 0;
+        padding-bottom: 5rem;
+    }
+    /* MONITORY MOBILE */
+    .mainContainer__mainMonitory {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        left: 0;
+        position: absolute;
+        top: 4rem;
+        padding-bottom: 5rem;
+    }
+    .mainMonitory__power {
+        display: flex;
+        justify-content: center;
+        height: 7rem;
+        width: 90%;
+        align-self: center;
+        margin-top: 1rem;
+    }
+    .mainMonitory__row {
+        width: 100%;
+        height: 36px;
+        position: relative;
+    }
+    .mainMonitory__row::after {
+        content: '→';
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 2rem;
+        color: rgba(0, 0, 0, 0.3);
+        animation: seta .5s ease-in 0s infinite alternate;
+    }
+    .mainMonitory__containerCards {
+        height: 40rem;
+        flex-direction: column;
+    }
+    .containerCards__cards {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow-x: auto;
+        box-shadow: none;
+        background-color: #eee;
+        border-radius: 0;
+    }
+    .card {
+        width: 18rem;
+        flex: 1 0 calc(100% - 10%);
+        height: 95%;
+        margin: .7rem 1rem 0 1.4rem !important;
+    }
+    .card-header {
+        height: 15rem;
+    }
+    .mainMonitory__newCards {
+        height: auto;
+        margin: 0.5rem 0 1rem 0;
+        background: transparent;
+        box-shadow: none;
+        width: 100%;
+    }
+    .mainMonitory__newCards .fa-plus-circle {
+        font-size: 3rem;
+    }
+    .card-body,
+    .cardBody__amperagem {
+        padding-right: 0;
+    }
+    .cardTitle,
+    .cardBody__amperagem {
+        padding-right: 1rem;
+    }
+    .cardTitle__editTitle,
+    .setTimeOut__editSetTimeOut,
+    .cardAmperagem__editAmperagem {
+        align-items: flex-end;
+    }
+    svg {
+        height: 2.5rem;
+    }
+    /* GRAPH MOBILE */
+    .mainContainer__mainStatistic {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        height: auto;
+        padding-bottom: 7rem;
+    }
+    .mainStatistic__settingsGraph {
+        flex-direction: column;
+        height: auto;
+        margin: 1rem auto;
+    }
+    .settingsGraph__divSelect,
+    .divDate__firstDate,
+    .divDate__lastDate {
+        width: 100%;
+    }
+    .settingsGraph__divDate {
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .divDate__button {
+        align-self: center;
+        width: 100%;
+        text-align: center;
+    }
+    .divDate__button .btn-primary {
+        width: 50%;
+    }
+    .card-header span {
+        font-size: 20vw;
+    }
+    .cardBody__setTimeOut h5 {
+        width: 9rem;
+    }
+    .card-body {
+        overflow-y: auto;
+    }
+    .card-header span {
+        font-size: 20vw;
+    }
+}
+
+
+/* SMART PHONE SCREEN HORIZONTAL */
+
+@media screen and (max-height: 550px) {
+    .mainContainer__header {
+        z-index: 2;
+    }
+    .mainContainer__aside {
+        flex-direction: row;
+        height: 10rem;
+        width: 100%;
+    }
+    .aside__monitory label,
+    .aside__graph label {
+        font-size: 1.3rem;
+    }
+    .aside__closeMenu,
+    .aside__monitory,
+    .aside__graph {
+        margin-right: 1rem;
+    }
+    .cardTitle,
+    .cardBody__setTimeOut {
+        margin: 1rem 0;
+    }
+    .cardBody__amperagem {
+        margin: 2rem 0;
+    }
+    .mainContainer__mainMonitory {
+        padding-bottom: 0;
+    }
+}
