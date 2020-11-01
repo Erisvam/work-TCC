@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Smart Plug</title>
-
-
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-
     <!-- toogle button -->
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
@@ -183,14 +180,14 @@
                 <div class="settingsGraph__divDate">
                     <div class="divDate__firstDate">
                         <label for="de">de:</label>
-                        <input type="month" id="de" max="2020-09">
+                        <input type="month" id="de">
                     </div>
                     <div class="divDate__lastDate">
                         <label for="ate">até:</label>
                         <input type="month" id="ate">
                     </div>
                     <div class="divDate__button">
-                        <button type="submit" class="btn btn-primary">ok</button>
+                        <button type="submit" class="btn btn-primary" onclick="getMonths()">ok</button>
                     </div>
                 </div>
             </div>

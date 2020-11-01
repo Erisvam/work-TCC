@@ -1,7 +1,6 @@
 var context = document.getElementsByClassName('myChart');
 
 $("#selectTypeGraph").change(function() {
-    debugger;
     graph.destroy();
     var contextNew = document.getElementsByClassName('myChart');
     mainGraph(contextNew, $(this).val(), arrAmount);
@@ -14,7 +13,7 @@ function mainGraph(context, typeGraph, data) {
     graph = new Chart(context, {
         type: typeGraph,
         data: {
-            labels: ['out', 'nov', 'dev', 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set '],
+            labels: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
             datasets: [{
                 label: "Dataset #1",
                 backgroundColor: "rgba(255,99,132,0.2)",

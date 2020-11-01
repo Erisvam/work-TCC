@@ -60,9 +60,7 @@ const userDate = {};
 // REGISTER USER
 const registerUser = function() {
     const USER_PATH = "/usuario";
-    const registerValid = validateUserRegistration().every(function() {
-        return FIELD_OK;
-    });
+    const registerValid = validateUserRegistration().every(element => element);
 
     if (registerValid) {
         var user = {
@@ -104,12 +102,11 @@ const readDevice = response => {
     let temporizador = response.temporizador;
     let amperagem = response.amperagem;
     let consumo = response.consumo;
-
-    arrAmount = readAmount(response);
+    arrAmount = readAmount(response, "", "");
     mainGraph(context, $("#selectTypeGraph").val(), arrAmount);
     showInformations(nome, temporizador, amperagem);
-    readConsumption(consumo);
     readStatusDevice(statusOnOff);
+    readConsumption(consumo);
 
 }
 const readStatusDevice = status => {
@@ -219,7 +216,6 @@ const clearModalAndClose = (classNameModal) => {
 }
 
 const validateUserRegistration = () => {
-
     valueNameRoteador = $("#nameWifi").val();
     let messageErrorNameRoteador = $("#nameWifiError");
 
@@ -281,30 +277,54 @@ const currentDate = () => {
     let fullDate = `${currentYear}-${currentMonth}-${currentDay}`;
     return fullDate;
 }
+const readAmount = (consumption, de, ate) => {
+    let somaDe = 0;
+    let somaAte = 0;
+    let somaIntervalo = 0;
+    let deNoParam;
+    let ateNoParam;
+    let obj = {};
+    let arr = [];
 
-const readAmount = (consumption) => {
-    let year = "2020";
-    let currentMonth = currentDate().substr(5, 2);
-    let lastDay = 12;
-    let lastDayOfTheMonth = 31;
-    let arrayAmount = [];
+    (de === "") ? deNoParam = currentDate().substr(5, 2): deNoParam = de;
+    (ate === "") ? ateNoParam = currentDate().substr(5, 2): ateNoParam = ate;
 
-    for (let month = 1; month <= lastDay; month++) {
-        for (let day = 1; day <= lastDayOfTheMonth; day++) {
+    for (const iteratorPai in consumption.consumo) {
 
-            let findDay = consumption.consumo[`${year}-${month}-${day}`] !== undefined;
-            if (findDay) {
-                let amount = consumption.consumo[`${year}-${month}-${day}`].montante;
-                if (currentMonth == month) {
-                    arrayAmount.push(sumOfAmount(amount));
-                }
+        if (iteratorPai.substr(5, 2) == deNoParam) {
+            somaDe += consumption.consumo[iteratorPai].montante;
+            obj[iteratorPai.substr(5, 2)] = somaDe;
+        }
+
+        if (iteratorPai.substr(5, 2) !== deNoParam && iteratorPai.substr(5, 2) !== ateNoParam) {
+            if (iteratorPai.substr(5, 2) >= deNoParam && iteratorPai.substr(5, 2) <= ateNoParam) {
+                somaIntervalo += consumption.consumo[iteratorPai].montante;
+                obj[iteratorPai.substr(5, 2)] = somaIntervalo;
+            } else {
+                obj[iteratorPai.substr(5, 2)] = 0;
             }
         }
+
+        if (iteratorPai.substr(5, 2) == ateNoParam) {
+            somaAte += consumption.consumo[iteratorPai].montante;
+            obj[iteratorPai.substr(5, 2)] = somaAte;
+        }
     }
-    return arrayAmount;
+
+    for (let i = 1; i <= Object.values(obj).length; i++) {
+        (i <= 9) ? i = "0" + String(i): i = String(i);
+        arr.push(obj[i]);
+    }
+    return arr;
 }
 
-const sumOfAmount = (amount) => {
-    let sum = 0;
-    return sum += amount;
+const getMonths = function() {
+    let de = $("#de").val().substr(5, 2);
+    let ate = $("#ate").val().substr(5, 2);
+    if (!(parseInt(de) > parseInt(ate))) {
+        arrAmount = readAmount(response.dispositivos.XPTO, de, ate)
+        mainGraph(context, $("#selectTypeGraph").val(), arrAmount);
+    } else {
+        alert("Data mínima não pode ser maior do que a data máxima!")
+    }
 }
