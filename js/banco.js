@@ -115,7 +115,7 @@ const showInformations = (nome, temporizador, amperagem) => {
     showTitle(nome);
     showTimer(temporizador);
     showAmperage(amperagem);
-    $("#timer").html(`Tempo de atualização: ${temporizador * 60} minuto`);
+    $("#timer").html(`Tempo de atualização: ${temporizador * 60} minutos`);
     $("#amperagemCard").html(`Amperagem: ${amperagem} A`);
 }
 
@@ -131,8 +131,8 @@ const showTitle = nome => {
 
 const showTimer = temporizador => {
     let timerTitle = "#timer";
-    let messageTimer = `Temporizador: ${temporizador} minuto`;
-    let messageTimerPlaceHolder = `Ex: ${temporizador * 60} minuto`;
+    let messageTimer = `Temporizador: ${temporizador} minutos`;
+    let messageTimerPlaceHolder = `Ex: ${temporizador * 60} minutos`;
     let valuePlaceHolder = "#inputTime";
 
     $(timerTitle).html(messageTimer);
