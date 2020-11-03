@@ -9,17 +9,6 @@ var firebaseConfig = {
     measurementId: "G-2JZW9BNKR2"
 };
 
-// var firebaseConfig = {
-//     apiKey: "AIzaSyAhj8kpn35PrelSPJguOFZ0uosNBJ-UMoI",
-//     authDomain: "neon-fce00.firebaseapp.com",
-//     databaseURL: "https://neon-fce00.firebaseio.com",
-//     projectId: "neon-fce00",
-//     storageBucket: "neon-fce00.appspot.com",
-//     messagingSenderId: "464013235447",
-//     appId: "1:464013235447:web:374f2d8b7c2507aa5eaff2",
-//     measurementId: "G-16BF6G5QCK"
-// };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
@@ -30,12 +19,6 @@ $(document).ready(function() {
     $("#de").attr("max", currentDate().substr(0, 7));
     $("#ate").attr("max", currentDate().substr(0, 7));
 });
-
-// function deletar(id) {
-//     let banco = firebase.database().ref('node/info/' + id);
-//     banco.remove();
-//     $("#deleteInput").val("");
-// }
 
 var valueNameRoteador;
 var valuePasswordRoteador;
@@ -60,9 +43,7 @@ const userDate = {};
 // REGISTER USER
 const registerUser = function() {
     const USER_PATH = "/usuario";
-    const registerValid = validateUserRegistration().every(function() {
-        return FIELD_OK;
-    });
+    const registerValid = validateUserRegistration().every(element => element);
 
     if (registerValid) {
         var user = {
@@ -90,6 +71,7 @@ function readDataBase() {
         response = snapshot.val();
         readUser(response.usuario);
         readDevice(response.dispositivos.XPTO);
+        readConsumption(response.dispositivos.XPTO.consumo, response.consumo);
     });
 }
 
@@ -98,19 +80,16 @@ const readUser = response => {
     userDate.passwordAccess = response.senhaDeAcesso;
 }
 var arrAmount;
+var currentWatts;
 const readDevice = response => {
     let nome = response.nome;
     let statusOnOff = response.onOff;
     let temporizador = response.temporizador;
     let amperagem = response.amperagem;
-    let consumo = response.consumo;
-
-    arrAmount = readAmount(response);
+    arrAmount = readAmount(response, "", "");
     mainGraph(context, $("#selectTypeGraph").val(), arrAmount);
     showInformations(nome, temporizador, amperagem);
-    readConsumption(consumo);
-    readStatusDevice(statusOnOff);
-
+    currentWatts = readStatusDevice(statusOnOff);
 }
 const readStatusDevice = status => {
     let buttonON = $(".btn-outline-primary");
@@ -122,23 +101,22 @@ const readStatusDevice = status => {
 
         buttonOFF.removeClass(OFF_WITH_COLOR);
         buttonOFF.addClass(OFF_TRANSPARENT);
-        return;
+        return true;
     } else {
         buttonOFF.addClass(OFF_WITH_COLOR);
         buttonOFF.removeClass(OFF_TRANSPARENT);
 
         buttonON.removeClass(ON_WITH_COLOR);
         buttonON.addClass(ON_TRANSPARENT);
-        return;
+        return false;
     }
 }
 const showInformations = (nome, temporizador, amperagem) => {
     showTitle(nome);
     showTimer(temporizador);
     showAmperage(amperagem);
-
-    $("#timer").html(`Temporizador: ${temporizador} minuto`);
-    $("#amperagemCard").html(`Amperagem: ${amperagem}`);
+    $("#timer").html(`Tempo de atualização: ${temporizador * 60} minuto`);
+    $("#amperagemCard").html(`Amperagem: ${amperagem} A`);
 }
 
 const showTitle = nome => {
@@ -154,7 +132,7 @@ const showTitle = nome => {
 const showTimer = temporizador => {
     let timerTitle = "#timer";
     let messageTimer = `Temporizador: ${temporizador} minuto`;
-    let messageTimerPlaceHolder = `Ex: ${temporizador} minuto`;
+    let messageTimerPlaceHolder = `Ex: ${temporizador * 60} minuto`;
     let valuePlaceHolder = "#inputTime";
 
     $(timerTitle).html(messageTimer);
@@ -170,11 +148,27 @@ const showAmperage = amperagem => {
     $(amperagemTitle).html(messageAmperagem);
     $(valuePlaceHolder).attr(PLACEHOLDER, messageAmperagemPlaceHolder);
 }
-const readConsumption = response => {
-    let currentData = response[currentDate()].atual;
-    let messageCurrentData = `${currentData} W`;
+const readConsumption = (deviceXpto, consumoDevice) => {
+    let currentData = deviceXpto[currentDate()].atual;
 
-    $(".currentData").html(messageCurrentData);
+    if (currentData !== undefined || currentData !== null) {
+        let percent = (consumoDevice["microondas"].standby * 0.15) / 100;
+        let quizePorcentoMais = consumoDevice["microondas"].standby + percent;
+        let quizePorcentoMenos = consumoDevice["microondas"].standby - percent;
+
+        if (currentData > quizePorcentoMenos && currentData < quizePorcentoMais) {
+            setTimeout(function() {
+                readStatusDevice(false);
+            }, 120000);
+        }
+    }
+    if (!currentWatts) {
+        let messageCurrentData = `0 W`;
+        $(".currentData").html(messageCurrentData);
+    } else {
+        let messageCurrentData = `${currentData} W`;
+        $(".currentData").html(messageCurrentData);
+    }
 }
 
 const logIn = function() {
@@ -219,7 +213,6 @@ const clearModalAndClose = (classNameModal) => {
 }
 
 const validateUserRegistration = () => {
-
     valueNameRoteador = $("#nameWifi").val();
     let messageErrorNameRoteador = $("#nameWifiError");
 
@@ -277,34 +270,83 @@ const currentDate = () => {
     let currentDay = date.getDate();
     let currentMonth = date.getMonth() + 1;
     let currentYear = date.getFullYear();
+    let fullDate;
 
-    let fullDate = `${currentYear}-${currentMonth}-${currentDay}`;
+    (currentDay < 9) ? fullDate = `${currentYear}-${currentMonth}-0${currentDay}`: fullDate = `${currentYear}-${currentMonth}-${currentDay}`;
+
     return fullDate;
 }
+const readAmount = (consumption, de, ate) => {
+    let somaDe = 0;
+    let somaAte = 0;
+    let somaIntervalo = 0;
+    let somaContador = 0;
+    let somaContadorIntervalo = 0;
+    let somaContadorAte = 0;
 
-const readAmount = (consumption) => {
-    let year = "2020";
-    let currentMonth = currentDate().substr(5, 2);
-    let lastDay = 12;
-    let lastDayOfTheMonth = 31;
-    let arrayAmount = [];
+    let deNoParam;
+    let ateNoParam;
+    let obj = {};
+    let objContador = {}
+    let arr = [];
 
-    for (let month = 1; month <= lastDay; month++) {
-        for (let day = 1; day <= lastDayOfTheMonth; day++) {
+    (de === "") ? deNoParam = currentDate().substr(5, 2): deNoParam = de;
+    (ate === "") ? ateNoParam = currentDate().substr(5, 2): ateNoParam = ate;
 
-            let findDay = consumption.consumo[`${year}-${month}-${day}`] !== undefined;
-            if (findDay) {
-                let amount = consumption.consumo[`${year}-${month}-${day}`].montante;
-                if (currentMonth == month) {
-                    arrayAmount.push(sumOfAmount(amount));
-                }
+    for (const iteratorPai in consumption.consumo) {
+
+        if (iteratorPai.substr(5, 2) == deNoParam) {
+            somaDe += consumption.consumo[iteratorPai].montante;
+            somaContador += consumption.consumo[iteratorPai].contador;
+
+            obj[iteratorPai.substr(5, 2)] = somaDe;
+            objContador[iteratorPai.substr(5, 2)] = somaContador;
+        }
+
+        if (iteratorPai.substr(5, 2) !== deNoParam && iteratorPai.substr(5, 2) !== ateNoParam) {
+            if (iteratorPai.substr(5, 2) >= deNoParam && iteratorPai.substr(5, 2) <= ateNoParam) {
+                somaIntervalo += consumption.consumo[iteratorPai].montante;
+                somaContadorIntervalo += consumption.consumo[iteratorPai].contador;
+
+                obj[iteratorPai.substr(5, 2)] = somaIntervalo;
+                objContador[iteratorPai.substr(5, 2)] = somaContadorIntervalo;
+            } else {
+                obj[iteratorPai.substr(5, 2)] = 0;
+                objContador[iteratorPai.substr(5, 2)] = 0;
             }
         }
+
+        if (iteratorPai.substr(5, 2) == ateNoParam) {
+            somaAte += consumption.consumo[iteratorPai].montante;
+            somaContadorAte += consumption.consumo[iteratorPai].contador;
+
+            obj[iteratorPai.substr(5, 2)] = somaAte;
+            objContador[iteratorPai.substr(5, 2)] = somaContadorAte;
+        }
     }
-    return arrayAmount;
+
+    for (let i = 1; i <= Object.values(obj).length; i++) {
+        (i <= 9) ? i = "0" + String(i): i = String(i);
+        if (objContador[i] !== 0 && objContador[i] !== undefined) {
+            let consumoWattsKilooHora = ((obj[i] / objContador[i]) * (0.5 * objContador[i]) / 1000);
+            arr.push(consumoWattsKilooHora.toFixed(2));
+        } else {
+            arr.push(0);
+        }
+
+    }
+    return arr;
 }
 
-const sumOfAmount = (amount) => {
-    let sum = 0;
-    return sum += amount;
+const getMonths = function() {
+    let de = $("#de").val().substr(5, 2);
+    let ate = $("#ate").val().substr(5, 2);
+    if (!(parseInt(de) > parseInt(ate))) {
+        var contextNew = document.getElementsByClassName('myChart');
+        graph.destroy();
+        arrAmount = readAmount(response.dispositivos.XPTO, de, ate)
+        mainGraph(contextNew, $("#selectTypeGraph").val(), arrAmount);
+    } else {
+        alert("Data mínima não pode ser maior do que a data máxima!")
+    }
 }

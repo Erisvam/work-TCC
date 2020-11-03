@@ -122,7 +122,6 @@ $(backTitle).click(function() {
 });
 
 $(saveTitle).click(function() {
-    debugger;
     const NOME_PATH = "/dispositivos/XPTO/nome";
     let inputTitle = $("#inputTitle").val();
     let inputTitleError = $("#inputTitleError");
@@ -130,6 +129,7 @@ $(saveTitle).click(function() {
     if (isNotEmpty(inputTitle, inputTitleError)) {
         const updateNome = inputTitle;
         accessBank(NOME_PATH, updateNome);
+        $("#inputTitle").val("");
         hideComponenteEdit(titleDefault, cardTitle__editTitle, propertyFlex, inputTitleError);
     }
 });
@@ -148,8 +148,9 @@ $(saveTime).click(function() {
     let inputTimeError = $("#inputTimeError");
 
     if (isNotEmpty(inputTime, inputTimeError)) {
-        const updateTimer = inputTime;
+        const updateTimer = (parseInt(inputTime) / 60);
         accessBank(NOME_PATH, updateTimer);
+        $("#inputTime").val("");
         hideComponenteEdit(timeDefault, setTimeOut__editSetTimeOut, propertyInitial, inputTimeError);
     }
 });
@@ -171,6 +172,7 @@ $(saveAmperagem).click(function() {
     if (isNotEmpty(inputAmperagem, inputAmperagemError)) {
         const updateAmperage = inputAmperagem;
         accessBank(NOME_PATH, updateAmperage);
+        $("#inputAmperagem").val("");
         hideComponenteEdit(amperagemDefault, cardAmperagem__editAmperagem, propertyInitial, inputAmperagemError);
     }
 });
