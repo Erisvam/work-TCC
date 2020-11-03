@@ -148,7 +148,7 @@ $(saveTime).click(function() {
     let inputTimeError = $("#inputTimeError");
 
     if (isNotEmpty(inputTime, inputTimeError)) {
-        const updateTimer = inputTime;
+        const updateTimer = (parseInt(inputTime) / 60);
         accessBank(NOME_PATH, updateTimer);
         $("#inputTime").val("");
         hideComponenteEdit(timeDefault, setTimeOut__editSetTimeOut, propertyInitial, inputTimeError);

@@ -26,18 +26,18 @@
             <form class="loginContent__form">
                 <div class="form__nameWifi form-group">
                     <label for="search" class="col-form-label  whiteColor">Login:</label>
-                    <input type="text" class="form-control" id="userLogin" placeholder="Ex: login">
+                    <input type="text" class="form-control" id="userLogin" placeholder="Ex: login" autocomplete="off">
                     <small class="form-text text-muted  whiteColor" style="display: block;">nome do seu roteador</small>
                     <small id="userLoginError" class="form-text text-muted" hidden>Nome inválido!</small>
                 </div>
                 <div class="form__namePassword  form-group">
                     <label for="passwd" class="col-form-label  whiteColor">Senha:</label>
                     <input type="password" class="form-control" id="passwordAccess" placeholder="Ex: senha">
-                    <small class="form-text text-muted whiteColor" style="display: block;">Senha de acesso</small>
+                    <small class="form-text text-muted whiteColor" style="display: block;">senha de acesso</small>
                     <small id="passwordAccessError" class="form-text text-muted" hidden>Senha inválida!</small>
                 </div>
                 <div class="form__divButton">
-                    <a role="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegister" tabindex="0">registre-se</a>
+                    <a role="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegister" tabindex="0">Registre-se</a>
                     <a type="button" class="btn btn-primary" role="button" id="btn-entrar" onclick="logIn()" tabindex="0">Entrar</a>
                 </div>
             </form>
@@ -58,17 +58,17 @@
                     <form>
                         <div class="form-group">
                             <label for="nameWifi" id="labelNameWifi" placeholder="Ex: Casa1">Nome da rede Wi-fi:</label>
-                            <input type="text" class="form-control" id="nameWifi">
+                            <input type="text" class="form-control" id="nameWifi" autocomplete="off">
                             <small id="nameWifiError" class="form-text text-muted" hidden>Campo invalido</small>
                         </div>
                         <div class="form-group">
                             <label for="passwordWifi">Senha da rede Wi-fi:</label>
-                            <input type="password" class="form-control" id="passwordWifi">
+                            <input type="password" class="form-control" id="passwordWifi" autocomplete="off">
                             <small id="passwordWifiError" class="form-text text-muted" hidden>Campo invalido</small>
                         </div>
                         <div class="form-group">
                             <label for="passwordAcess">Senha de acesso:</label>
-                            <input type="password" class="form-control" id="passwordAcess">
+                            <input type="password" class="form-control" id="passwordAcess" autocomplete="off">
                             <small id="passwordAcessError" class="form-text text-muted" hidden>Campo invalido</small>
                         </div>
                     </form>

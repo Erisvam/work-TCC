@@ -15,7 +15,7 @@ function mainGraph(context, typeGraph, data) {
         data: {
             labels: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
             datasets: [{
-                label: "Dataset #1",
+                label: "Potência (kWh)",
                 backgroundColor: "rgba(255,99,132,0.2)",
                 borderColor: "rgba(255,99,132,1)",
                 borderWidth: 2,
@@ -28,7 +28,7 @@ function mainGraph(context, typeGraph, data) {
             title: {
                 display: true,
                 fontSize: 20,
-                text: "QUALQUER COISA"
+                text: "CONSUMO MENSAL"
             },
             maintainAspectRatio: false,
             scales: {
